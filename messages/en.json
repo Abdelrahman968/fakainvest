@@ -1,0 +1,663 @@
+{
+  "onboarding": {
+    "welcomeTo": "Welcome to",
+    "appName": " FakaInvest",
+    "coreIdeaTitle": "Core Idea",
+    "coreIdeaDesc": "Round up every purchase, invest the change automatically",
+    "targetMarketTitle": "Target Market",
+    "targetMarketDesc": "Egypt & Arab market – youth aged 18-40",
+    "competitiveEdgeTitle": "Competitive Edge",
+    "competitiveEdgeDesc": "No direct Egyptian competitor + AI for personalized recommendations",
+    "discoverFeatures": "Discover Features",
+    "smartRoundUp": "Smart Round‑Up",
+    "smartRoundUpDesc": "Every purchase is rounded up automatically – the difference goes straight to your portfolio",
+    "purchase": "Purchase",
+    "roundedTo": "Rounded to",
+    "invested": "Invested",
+    "mode": "Mode",
+    "normal": "Normal",
+    "medium": "Medium",
+    "aggressive": "Aggressive",
+    "roundUpModes": "⚡ Three round‑up modes: Normal / Medium / Aggressive",
+    "nextInvestment": "Next: Investment Options",
+    "investmentOptions": "Investment Options",
+    "investmentOptionsDesc": "Choose how your spare change is invested",
+    "savingsCertificates": "Savings Certificates",
+    "savingsCertificatesDesc": "Best Egyptian bank certs with real-time rate comparison",
+    "fractionalRealEstate": "Fractional Real Estate",
+    "fractionalRealEstateDesc": "Co-own residential units with other investors",
+    "stocks": "Stocks",
+    "stocksDesc": "Egyptian stock exchange + international fractional shares",
+    "mutualFunds": "Mutual Funds",
+    "mutualFundsDesc": "Auto-diversified portfolios matched to your risk tolerance",
+    "digitalGold": "Digital Gold",
+    "digitalGoldDesc": "Buy gold grams linked to Egypt's live daily market price",
+    "blendedPortfolio": "Blended Portfolio",
+    "blendedPortfolioDesc": "AI auto-distributes your change across the optimal mix",
+    "veryLow": "Very Low",
+    "low": "Low",
+    "high": "High",
+    "smart": "Smart",
+    "aiAdvisor": "AI – 24/7 Financial Advisor",
+    "aiAdvisorDesc": "Available in Arabic & English • Smart Nudges • Spending Analysis • Future Simulator • Market Alerts",
+    "nextSmartFeatures": "Next: Smart Features",
+    "smartFeatures": "Smart Features",
+    "smartFeaturesDesc": "Take full control of your financial life",
+    "financialGoals": "Financial Goals System",
+    "financialGoalsDesc": "Set a goal – AI builds and manages the plan automatically",
+    "smartBudget": "Smart Budget Management",
+    "smartBudgetDesc": "Spending caps, instant alerts, AI reallocation suggestions",
+    "iftttRules": "IFTTT Rules",
+    "iftttRulesDesc": "Custom automation: Uber rides, weekly transfers, cashback routing",
+    "familyWallet": "Family Wallet",
+    "familyWalletDesc": "Shared family account with permission tiers & unified reports",
+    "gamification": "Gamification & Cashback",
+    "gamificationDesc": "Badges, streaks, leaderboards + cashback auto-invested",
+    "nextTechRoadmap": "Next: Tech & Roadmap",
+    "poweredBy": "Powered By",
+    "poweredByDesc": "Modern tech stack for a seamless experience",
+    "enterApp": "Enter App",
+    "footerText": "FakaInvest — Smart Spare Change Investment Platform",
+    "aiTitle": "AI-powered personal finance app for the Arab market",
+    "currency": "EGP"
+  },
+  "NotFound": {
+    "pageNotFound": "Page Not Found",
+    "pageNotFoundDescription": "Sorry, we couldn&apos;t find the page you&apos;re looking for.",
+    "pageNotFoundDescription2": "The page might have been moved, deleted, or never existed.",
+    "goBack": "Go Back",
+    "returnToHome": "Return to Home"
+  },
+  "HomePage": {
+    "hero": {
+      "badge": "Powered by AI",
+      "title": {
+        "line1": "Invest your",
+        "highlight": "spare change",
+        "line2": "automatically"
+      },
+      "description": "FakaInvest rounds up every purchase and grows your wealth in the background — guided by AI. Built for Egypt & the Arab World.",
+      "stats": {
+        "startFrom": {
+          "value": "EGP 1",
+          "label": "Start from"
+        },
+        "bestYield": {
+          "value": "23%",
+          "label": "Best yield"
+        },
+        "aiAdvisor": {
+          "value": "24/7",
+          "label": "AI advisor"
+        },
+        "instruments": {
+          "value": "6+",
+          "label": "Instruments"
+        }
+      },
+      "cta": "See how it works",
+      "ctaNote": "No minimum balance required"
+    },
+    "howItWorks": {
+      "badge": "The Mechanism",
+      "title": {
+        "line1": "Round up.",
+        "highlight": "Invest the change."
+      },
+      "description": "The simplest investment habit you'll ever build — because you don't have to think about it.",
+      "steps": {
+        "linkBank": {
+          "title": "Link your bank",
+          "description": "Securely connect your Egyptian bank account or wallet — CIB, NBE, Banque Misr, Fawry, Paymob and more."
+        },
+        "chooseMode": {
+          "title": "Choose a Round-Up mode",
+          "description": "Normal rounds to the nearest 10 EGP. Medium rounds to 50. Aggressive rounds to 100. You pick what fits your lifestyle."
+        },
+        "shopNormal": {
+          "title": "Shop as normal",
+          "description": "Every time you pay, FakaInvest automatically calculates the difference and queues it for investment."
+        },
+        "changeGrows": {
+          "title": "Your change grows",
+          "description": "Spare change is invested into your chosen instruments. AI monitors, rebalances, and advises you 24/7."
+        }
+      },
+      "table": {
+        "title": "Round-Up in action",
+        "headers": {
+          "paid": "Paid",
+          "roundedTo": "Rounded to",
+          "invested": "Invested",
+          "mode": "Mode"
+        }
+      },
+      "examples": {
+        "modes": {
+          "normal": "Normal",
+          "medium": "Medium"
+        }
+      }
+    },
+    "investmentOptions": {
+      "badge": "Your Money, Your Choice",
+      "title": {
+        "line1": "6 ways to grow",
+        "highlight": "your change."
+      },
+      "description": "From ultra-safe bank certificates to real estate and stocks — pick one or let AI blend them all.",
+      "riskSuffix": "Risk",
+      "instruments": {
+        "savingsCertificates": {
+          "name": "Savings Certificates",
+          "risk": "Very Low",
+          "description": "Best Egyptian bank certificates with real-time rate comparison across all major banks.",
+          "badge": "Safest"
+        },
+        "fractionalRealEstate": {
+          "name": "Fractional Real Estate",
+          "risk": "Medium",
+          "description": "Co-own residential units with other investors. Real Egyptian property, fractional ownership.",
+          "badge": "Popular"
+        },
+        "stocks": {
+          "name": "Stocks",
+          "risk": "High",
+          "description": "Egyptian Stock Exchange plus international fractional shares — diversified global exposure.",
+          "badge": "High Growth"
+        },
+        "mutualFunds": {
+          "name": "Mutual Funds",
+          "risk": "Medium",
+          "description": "Auto-diversified portfolios professionally matched to your personal risk tolerance.",
+          "badge": null
+        },
+        "digitalGold": {
+          "name": "Digital Gold",
+          "risk": "Medium",
+          "description": "Buy gold grams linked to Egypt's live daily market price. Real gold, digital convenience.",
+          "badge": "Egypt's favorite"
+        },
+        "blendedPortfolio": {
+          "name": "Blended Portfolio",
+          "risk": "Smart",
+          "description": "AI auto-distributes your spare change across the optimal mix based on your goals.",
+          "badge": "AI-Managed"
+        }
+      },
+      "disclaimer": "All investments are regulated and compliant with Egyptian Financial Supervisory Authority guidelines."
+    },
+    "aiFeatures": {
+      "badge": "AI — Arabic & English",
+      "title": {
+        "line1": "Your 24/7 personal",
+        "highlight": "financial advisor."
+      },
+      "description": "AI doesn't just watch your money — it understands it, predicts it, and optimizes it continuously.",
+      "features": {
+        "smartNudges": {
+          "title": "Smart Nudges",
+          "description": "\"You spent 800 EGP on transport this month — cut 20% to add 160 EGP to investments\""
+        },
+        "spendingAnalysis": {
+          "title": "Spending Analysis",
+          "description": "Auto-categorize every transaction: food, transport, entertainment, bills. Weekly charts show where your money actually goes."
+        },
+        "futureSimulator": {
+          "title": "Future Simulator",
+          "description": "\"At this rate for 3 years your portfolio will reach 45,000 EGP\""
+        },
+        "financialHealthScore": {
+          "title": "Financial Health Score",
+          "description": "A score out of 100, updated weekly based on budget adherence and savings rate. Track your financial wellness."
+        },
+        "monthlyAIReport": {
+          "title": "Monthly AI Report",
+          "description": "Monthly spending summary + investment returns + one personalized AI tip for next month."
+        },
+        "marketAlerts": {
+          "title": "Market Alerts",
+          "description": "\"Gold hit a peak — consider selling part of your portfolio now\""
+        }
+      },
+      "rulesSection": {
+        "title": "Smart IFTTT Rules",
+        "subtitle": "Create custom automation that matches your life"
+      },
+      "rules": {
+        "uberRide": "Every Uber/Careem ride → invest an extra 5 EGP in stocks",
+        "fridayGold": "Every Friday → auto-transfer 50 EGP to digital gold",
+        "cashback": "Earn cashback → add it directly to the blended portfolio",
+        "exceedFoodBudget": "Exceed food budget → pause Round-Up for 3 days",
+        "endOfMonthSurplus": "End-of-month surplus → auto-invest 50% of the difference"
+      }
+    },
+    "features": {
+      "badge": "Full Feature Set",
+      "title": {
+        "line1": "Everything you need",
+        "highlight": "to build wealth."
+      },
+      "panels": {
+        "budgetManagement": {
+          "tag": "Budget Management",
+          "title": "Never overspend again.",
+          "description": "Set spending caps per category — food, transport, entertainment. Get instant alerts when you're 20% away from your limit. Month-over-month trend charts show your progress visually.",
+          "items": [
+            "Spending cap per category",
+            "20% limit alerts",
+            "Month-over-month comparison",
+            "AI-suggested budget reallocation"
+          ]
+        },
+        "financialGoals": {
+          "tag": "Financial Goals",
+          "title": "Set a goal. AI does the rest.",
+          "description": "Tell FakaInvest what you're saving for — a trip, an apartment down payment, a new device.AI calculates the daily amount needed, creates an isolated savings jar, and notifies you weekly.",
+          "items": [
+            "Travel in 6 months",
+            "Apartment down payment",
+            "New device fund",
+            "Course or education savings"
+          ]
+        },
+        "gamification": {
+          "tag": "Gamification",
+          "title": "Make saving feel rewarding.",
+          "description": "Earn badges, maintain streaks, and compete with friends — all while actually building wealth. Saving should feel good.",
+          "items": [
+            "\"First 1,000 EGP invested!\" badge",
+            "Daily budget-adherence streak",
+            "Optional friends leaderboard",
+            "Monthly saving challenges"
+          ]
+        },
+        "familyWallet": {
+          "tag": "Family Wallet",
+          "title": "Invest together as a family.",
+          "description": "Shared family account with permission tiers. Parents assign budgets per member. Unified reports and shared savings goals for the whole household.",
+          "items": [
+            "Shared family account",
+            "Per-member budgets",
+            "Unified spending reports",
+            "Shared savings goals"
+          ]
+        }
+      },
+      "cashbackSection": {
+        "title": "Cashback Ecosystem",
+        "subtitle": "Earn as you shop, auto-invest the rewards",
+        "description": "FakaInvest partners with Egyptian stores and restaurants. Every partner purchase earns you a percentage back — automatically invested into your portfolio through the in-app partner hub.",
+        "morePartners": "+ more partners"
+      },
+      "cashbackPartners": {
+        "stores": "Egyptian stores",
+        "restaurants": "Restaurants",
+        "ecommerce": "E-commerce",
+        "cafes": "Cafes & delivery"
+      }
+    },
+    "footer": {
+      "title": {
+        "line1": "Your money",
+        "highlight": "deserves better."
+      },
+      "description": "No competitor exists in this category for Egypt and the Arab World. FakaInvest is the first. The market is ready.",
+      "cta": "Coming soon — Join waitlist",
+      "stats": {
+        "targetMarket": {
+          "value": "Arab World",
+          "label": "Target Market"
+        },
+        "competitors": {
+          "value": "0",
+          "label": "Direct competitors"
+        },
+        "timeline": {
+          "value": "12 months",
+          "label": "Full launch timeline"
+        }
+      },
+      "footer": {
+        "tagline": "Smart Spare Change Investment Platform · Powered by AI",
+        "info": "Built for Egypt & the Arab World · Version 1.0 · April 2026",
+        "copyright": "SalamHack {year} © Created by",
+        "team": "Vortex Team"
+      }
+    },
+    "navbar": {
+      "login": "Login",
+      "logo": {
+        "faka": "Faka",
+        "invest": "Invest"
+      },
+      "links": {
+        "howItWorks": "How It Works",
+        "investmentOptions": "Investment Options",
+        "aiFeatures": "AI Features",
+        "features": "Features"
+      },
+      "cta": "Dashboard"
+    }
+  },
+  "DashboardPage": {
+    "greeting": "Good morning",
+    "currency": "EGP",
+    "currentBalance": "Current Balance",
+    "allTime": "All Time",
+    "invested": "Invested",
+    "pendingRoundUps": "Pending Round-ups",
+    "healthScore": "Health Score",
+    "streak": "Streak",
+    "days": "days",
+    "Saver_Tier_4": "Pro Investor",
+    "Saver_Tier_3": "Seasoned Investor",
+    "Saver_Tier_2": "Smart Investor",
+    "Saver_Tier_1": "Beginner",
+    "roundUpMode": "Round-Up mode",
+    "None": "Off",
+    "Aggressive": "Aggressive",
+    "Normal": "Normal",
+    "Medium": "Medium",
+    "Off": "Not Work",
+    "Round10": "Round to nearest EGP 10",
+    "Round20": "Round to nearest EGP 20",
+    "Round50": "Round to nearest EGP 50",
+    "askGemini": "Ask Ai",
+    "askGeminiDesc": "\"Why did my score go up this week?\"",
+    "recentRoundUps": "Recent Round-ups",
+    "viewAll": "View all",
+    "noRecentRoundUps": "No recent round-ups"
+  },
+  "CoreLayout": {
+    "dashboard": "Dashboard",
+    "activity": "Activity",
+    "portfolio": "Portfolio",
+    "wallet": "Wallet",
+    "transactions": "Transactions",
+    "chat": "AI",
+    "goals": "Goals",
+    "budget": "Budget",
+    "rules": "Rules",
+    "insights": "Insights",
+    "report": "Monthly report",
+    "market": "Market & Offers",
+    "realEstate": "Real Estate",
+    "family": "Family Wallet",
+    "rewards": "Rewards",
+    "referral": "Refer & Earn",
+    "profile": "Profile",
+    "more": "More"
+  },
+  "AppSidebar": {
+    "groups": {
+      "banking": "Banking",
+      "planAndGrow": "Plan & Grow",
+      "discover": "Discover",
+      "account": "Account"
+    },
+    "nav": {
+      "home": "Home",
+      "activity": "Activity",
+      "portfolio": "Portfolio",
+      "wallet": "Wallet",
+      "transactions": "Transactions",
+      "geminiAI": "Smart Advisor",
+      "goals": "Goals",
+      "budget": "Budget",
+      "rules": "Rules",
+      "insights": "Insights",
+      "monthlyReport": "Monthly Report",
+      "marketOffers": "Market & Offers",
+      "realEstate": "Real Estate",
+      "familyWallet": "Family Wallet",
+      "rewards": "Rewards",
+      "referEarn": "Refer & Earn",
+      "profile": "Profile"
+    },
+    "brand": {
+      "name": "FakaInvest",
+      "tagline": "AI · Arab World"
+    }
+  },
+  "SearchTrigger": {
+    "searchAnything": "Search anything…",
+    "search": "Search"
+  },
+  "CommandPalette": {
+    "searchPlaceholder": "Search pages, transactions, goals...",
+    "noResults": "No results.",
+    "pages": "Pages",
+    "recentTransactions": "Recent transactions",
+    "holdings": "Holdings",
+    "goals": "Goals",
+    "dialogTitle": "Search Command Palette",
+    "dialogDescription": "Search for pages, transactions, holdings and goals",
+    "home": "Home",
+    "activity": "Activity",
+    "portfolio": "Portfolio",
+    "wallet": "Wallet",
+    "transactions": "Transactions",
+    "chat": "AI",
+    "budget": "Budget",
+    "rules": "Rules",
+    "insights": "Insights",
+    "report": "Monthly Report",
+    "market": "Market & Offers",
+    "realEstate": "Real Estate",
+    "familyWallet": "Family Wallet",
+    "rewards": "Rewards",
+    "referral": "Refer & Earn",
+    "profile": "Profile",
+    "noData": "No data"
+  },
+  "BottomNav": {
+    "home": "Home",
+    "activity": "Activity",
+    "wallet": "Wallet",
+    "portfolio": "Portfolio",
+    "more": "More"
+  },
+  "Notifications": {
+    "title": "Notifications",
+    "markAllRead": "Mark all read",
+    "empty": "No notifications yet."
+  },
+  "Activity": {
+    "title": "Round-ups",
+    "subtitle": "Activity feed",
+    "totalRoundUp": "Total round-up",
+    "pending": "Pending",
+    "items": "items",
+    "readyToInvest": "Ready to invest",
+    "investNow": "Invest now",
+    "noTransactions": "No transactions found"
+  },
+  "Auth": {
+    "appName": "FakaInvest",
+    "appDescription": "AI · Arab World",
+    "welcomeBack": "Welcome back",
+    "createAccount": "Create your account",
+    "signinDescription": "Sign in to continue managing your money.",
+    "signupDescription": "Start saving and investing in under a minute.",
+    "displayName": "Display name",
+    "displayNamePlaceholder": "Abdelrahman Ayman",
+    "email": "Email",
+    "emailPlaceholder": "you@gmail.com",
+    "password": "Password",
+    "passwordPlaceholder": "At least 8 characters",
+    "showPassword": "Show password",
+    "hidePassword": "Hide password",
+    "signinButton": "Sign in",
+    "signupButton": "Create account",
+    "noAccount": "New here?",
+    "hasAccount": "Already have an account?",
+    "createOne": "Create one",
+    "signin": "Sign in",
+    "termsAgreement": "By continuing you agree to FakaInvest's Terms & Privacy Policy.",
+    "welcome": "Welcome to FakaInvest!",
+    "accountCreated": "Account created successfully",
+    "errors": {
+      "signupFailed": "Sign up failed",
+      "signinFailed": "Sign in failed",
+      "networkError": "Network error. Please check your connection."
+    }
+  },
+  "Portfolio": {
+    "holdings": "Holdings",
+    "your_portfolio": "Your portfolio",
+    "total_value": "Total value",
+    "return": "Return",
+    "currency": "EGP",
+    "holdings_not_found": "No holdings to display",
+    "allocation": "Allocation",
+    "time_period": "Time period",
+    "all_time": "All time",
+    "individual_holdings": "Individual holdings",
+    "no_holdings_yet": "No holdings yet"
+  },
+  "ContactsPage": {
+    "title": "Contacts",
+    "contactsInfo": "{count} contacts · {favorites} favorites",
+    "sync": "Sync",
+    "searchPlaceholder": "Search users by name or email...",
+    "searchResults": "Search Results",
+    "noUsersFound": "No users found",
+    "add": "Add",
+    "allContacts": "All Contacts",
+    "favorites": "Favorites",
+    "noContacts": "No contacts yet",
+    "noContactsHint": "Search for users above to add them, or send money to someone first",
+    "noFavorites": "No favorites yet",
+    "noFavoritesHint": "Star contacts to see them here",
+    "lastTransaction": "Last transaction",
+    "sendMoney": "Send money",
+    "removeFromFavorites": "Remove from favorites",
+    "addToFavorites": "Add to favorites",
+    "removeContact": "Remove contact",
+    "alreadyInContacts": "{name} is already in your contacts",
+    "contactAdded": "{name} added to contacts",
+    "removedFromFavorites": "{name} removed from favorites",
+    "addedToFavorites": "{name} added to favorites",
+    "contactRemoved": "{name} removed from contacts",
+    "enterValidAmount": "Enter a valid amount",
+    "failedToSend": "Failed to send",
+    "sentSuccess": "Sent EGP {amount} to {name}",
+    "addedNewContacts": "Added {count} new contacts from transactions",
+    "noNewContacts": "No new contacts found",
+    "failedToSync": "Failed to sync contacts",
+    "sendTo": "Send to {name}",
+    "amountEGP": "Amount (EGP)",
+    "sendNow": "Send Now",
+    "addContact": "Add Contact",
+    "cancel": "Cancel",
+    "addToContacts": "Add to Contacts"
+  },
+  "PayPage": {
+    "userNotFound": "User not found. The link might be invalid or the user doesn't exist.",
+    "failedToLoadUser": "Failed to load user",
+    "networkError": "Network error. Please try again.",
+    "invalidUserId": "Invalid user ID",
+    "enterValidAmount": "Please enter a valid amount",
+    "paymentFailed": "Payment failed",
+    "sentSuccess": "Sent EGP {amount} to {name}",
+    "paymentLinkCopied": "Your payment link copied!",
+    "backToWallet": "Back to Wallet",
+    "viewContacts": "View Contacts",
+    "yourPaymentLink": "This is your payment link!",
+    "sharePaymentLinkMessage": "Share this link with others to receive payments.",
+    "copyPaymentLink": "Copy Your Payment Link",
+    "paymentSent": "Payment Sent!",
+    "sentAmountTo": "You sent EGP {amount} to {name}",
+    "securePaymentMessage": "Payments are secure and protected by FakaInvest",
+    "amountEGP": "Amount (EGP)",
+    "noteOptional": "Note (optional)",
+    "notePlaceholder": "What's this for?",
+    "processing": "Processing...",
+    "sendButton": "Send EGP {amount}",
+    "instantFreeTransfer": "Transfer is instant and free",
+    "invalidLinkMessage": "The payment link might be invalid or the user has been removed."
+  },
+  "WalletPage": {
+    "yourMoneyVirtualCard": "Your money, virtual card & transfers",
+    "wallet": "Wallet",
+    "availableBalance": "Available balance",
+    "instantZeroFees": "Instant · Zero fees within FakaInvest",
+    "send": "Send",
+    "request": "Request",
+    "deposit": "Deposit",
+    "copyLink": "Copy Link",
+    "paymentLinkCopied": "Payment link copied",
+    "quickContacts": "Quick contacts",
+    "allTransactions": "All transactions",
+    "all": "All",
+    "allMoneyInOut": "All money in & out",
+    "recentTransfers": "Recent transfers",
+    "viewAll": "View all",
+    "noTransfersYet": "No transfers yet",
+    "tryDepositingOrPaying": "Try depositing money or making a payment",
+    "virtual": "Virtual",
+    "cardHolder": "Card holder",
+    "expires": "Expires",
+    "cardFrozen": "Card frozen",
+    "hide": "Hide",
+    "show": "Show",
+    "copy": "Copy",
+    "cardNumberCopied": "Card number copied",
+    "unfreeze": "Unfreeze",
+    "freeze": "Freeze",
+    "limits": "Limits",
+    "cardLimits": "Card limits",
+    "adjust": "Adjust",
+    "daily": "Daily",
+    "monthly": "Monthly",
+    "ofDailyLimitRemaining": "of daily limit remaining",
+    "dailyLimitReached": "Daily limit reached",
+    "perTx": "Per-tx",
+    "online": "Online",
+    "on": "on",
+    "off": "off",
+    "intl": "Intl",
+    "simulateCardPurchase": "Simulate a card purchase",
+    "simulateDescription": "Only a simulation, not a real purchase.",
+    "merchant": "Merchant",
+    "authorizePurchase": "Authorize purchase",
+    "searchRecipient": "Search recipient",
+    "searchByNameOrEmail": "Search by name or email...",
+    "amountEGP": "Amount (EGP)",
+    "sendInstantly": "Send instantly",
+    "sendMoney": "Send money",
+    "requestMoney": "Request money",
+    "noteOptional": "Note (optional)",
+    "notePlaceholder": "What's this for?",
+    "sendRequest": "Send request",
+    "paymentRequests": "Payment Requests",
+    "noPendingRequests": "No pending payment requests",
+    "note": "Note",
+    "requested": "Requested",
+    "pay": "Pay",
+    "reject": "Reject",
+    "depositFunds": "Deposit funds",
+    "bankTransfer": "Bank Transfer",
+    "fundsCreditedInstantly": "Funds will be credited instantly",
+    "depositButton": "Deposit EGP {amount}",
+    "enterValidAmount": "Enter a valid amount",
+    "pickRecipient": "Pick a recipient",
+    "sentSuccess": "Sent EGP {amount} to {name}",
+    "requestSent": "Requested EGP {amount} from {name}",
+    "requestFailed": "Request failed",
+    "paymentSent": "Payment sent",
+    "failedToAccept": "Failed to accept request",
+    "requestRejected": "Request rejected",
+    "failedToReject": "Failed to reject request",
+    "depositedSuccess": "Deposited EGP {amount}",
+    "transactionDeclined": "Transaction declined",
+    "cardCharged": "Card charged EGP {amount}",
+    "cardUnfrozen": "Card unfrozen",
+    "sent": "Sent",
+    "received": "Received",
+    "topup": "Top-up",
+    "card": "Card"
+
+  }
+}

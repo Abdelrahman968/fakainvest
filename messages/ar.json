@@ -1,0 +1,662 @@
+{
+  "onboarding": {
+    "welcomeTo": "مرحباً بك في",
+    "appName": " فكة إنفست",
+    "coreIdeaTitle": "الفكرة الأساسية",
+    "coreIdeaDesc": "تقريب كل عملية شراء واستثمار الفرق تلقائياً",
+    "targetMarketTitle": "السوق المستهدف",
+    "targetMarketDesc": "السوق المصري والعربي – الشباب من عمر 18-40 سنة",
+    "competitiveEdgeTitle": "الميزة التنافسية",
+    "competitiveEdgeDesc": "لا يوجد منافس مصري مباشر + ذكاء اصطناعي لتوصيات مخصصة",
+    "discoverFeatures": "اكتشف الميزات",
+    "smartRoundUp": "التقريب الذكي",
+    "smartRoundUpDesc": "يتم تقريب كل عملية شراء تلقائياً – يذهب الفرق مباشرة إلى محفظتك",
+    "purchase": "المشتريات",
+    "roundedTo": "مقرب إلى",
+    "invested": "تم استثماره",
+    "mode": "الوضع",
+    "normal": "عادي",
+    "medium": "متوسط",
+    "aggressive": "مكثف",
+    "roundUpModes": "⚡ ثلاث أوضاع للتقريب: عادي / متوسط / مكثف",
+    "nextInvestment": "التالي: خيارات الاستثمار",
+    "investmentOptions": "خيارات الاستثمار",
+    "investmentOptionsDesc": "اختر كيف يتم استثمار فكة باقي مشترياتك",
+    "savingsCertificates": "شهادات الادخار",
+    "savingsCertificatesDesc": "أفضل شهادات البنوك المصرية مع مقارنة الأسعار لحظياً",
+    "fractionalRealEstate": "العقارات التجزئية",
+    "fractionalRealEstateDesc": "امتلك وحدات سكنية بالمشاركة مع مستثمرين آخرين",
+    "stocks": "الأسهم",
+    "stocksDesc": "البورصة المصرية + أسهم جزئية عالمية",
+    "mutualFunds": "صناديق الاستثمار",
+    "mutualFundsDesc": "محافظ متنوعة تلقائياً تتناسب مع مستوى تحملك للمخاطرة",
+    "digitalGold": "الذهب الرقمي",
+    "digitalGoldDesc": "اشتر جرامات ذهب مرتبطة بسعر السوق المصري اليومي المباشر",
+    "blendedPortfolio": "محفظة مختلطة",
+    "blendedPortfolioDesc": "الذكاء الاصطناعي يوزع فكة باقي مشترياتك تلقائياً على المزيج الأمثل",
+    "veryLow": "منخفض جداً",
+    "low": "منخفض",
+    "high": "مرتفع",
+    "smart": "ذكي",
+    "aiAdvisor": "المستشار المالي بالذكاء الاصطناعي – 24/7",
+    "aiAdvisorDesc": "متاح بالعربية والإنجليزية • تنبيهات ذكية • تحليل المصروفات • محاكاة المستقبل • تنبيهات السوق",
+    "nextSmartFeatures": "التالي: الميزات الذكية",
+    "smartFeatures": "الميزات الذكية",
+    "smartFeaturesDesc": "تحكم كامل في حياتك المالية",
+    "financialGoals": "نظام الأهداف المالية",
+    "financialGoalsDesc": "حدد هدفاً – الذكاء الاصطناعي يبني ويدير الخطة تلقائياً",
+    "smartBudget": "إدارة الميزانية الذكية",
+    "smartBudgetDesc": "حدود إنفاق، تنبيهات فورية، اقتراحات إعادة توزيع من الذكاء الاصطناعي",
+    "iftttRules": "قواعد IFTTT",
+    "iftttRulesDesc": "أتمتة مخصصة: رحلات أوبر، تحويلات أسبوعية، توجيه الكاش باك",
+    "familyWallet": "محفظة العائلة",
+    "familyWalletDesc": "حساب عائلي مشترك مع مستويات صلاحية وتقارير موحدة",
+    "gamification": "الألعاب والكاش باك",
+    "gamificationDesc": "شارات، سلاسل متتالية، لوحات متصدرين + استثمار الكاش باك تلقائياً",
+    "nextTechRoadmap": "التالي: التقنية والخريطة المستقبلية",
+    "poweredBy": "مدعوم بـ",
+    "poweredByDesc": "تقنية حديثة لتجربة سلسة - لتسهيل حياتك المالية",
+    "enterApp": "الدخول إلى التطبيق",
+    "footerText": "فكة إنفست — منصة استثمار فكة الباقي الذكية",
+    "aiTitle": "تطبيق إدارة مالية شخصية مدعوم بالذكاء الاصطناعي للسوق العربي",
+    "currency": "جنيه"
+  },
+  "NotFound": {
+    "pageNotFound": "الصفحة غير موجودة",
+    "pageNotFoundDescription": "عذرًا، لم نتمكن من العثور على الصفحة التي تبحث عنها.",
+    "pageNotFoundDescription2": "ربما تم نقل الصفحة أو حذفها أو لم تكن موجودة من الأساس.",
+    "goBack": "العودة",
+    "returnToHome": "العودة إلى الصفحة الرئيسية"
+  },
+  "HomePage": {
+    "hero": {
+      "badge": "مدعوم بالذكاء الاصطناعي",
+      "title": {
+        "line1": "استثمر",
+        "highlight": "باقي الفكة",
+        "line2": "تلقائياً"
+      },
+      "description": "تطبيقنا يقوم بتجميع فكة كل عملية شراء وينمي ثروتك في الخلفية — بمساعدة الذكاء الاصطناعي. تم تصميم خصيصاً لمصر والعالم العربي.",
+      "stats": {
+        "startFrom": {
+          "value": "1 جنيه",
+          "label": "البدء من"
+        },
+        "bestYield": {
+          "value": "٢٣%",
+          "label": "أفضل عائد"
+        },
+        "aiAdvisor": {
+          "value": "٢٤/٧",
+          "label": "مستشار ذكاء اصطناعي"
+        },
+        "instruments": {
+          "value": "٦+",
+          "label": "أداة استثمار"
+        }
+      },
+      "cta": "شوف ازاي بيشتغل",
+      "ctaNote": "مفيش حد أدنى للمبلغ"
+    },
+    "howItWorks": {
+      "badge": "آلية العمل",
+      "title": {
+        "line1": "قرب لأقرب جنيه",
+        "highlight": "واستثمر الفكة"
+      },
+      "description": "أسهل عادة استثمار هتبنيها في حياتك — لأنك مش محتاج تفكر فيها.",
+      "steps": {
+        "linkBank": {
+          "title": "اربط حسابك البنكي",
+          "description": "اربط حسابك البنكي أو محفظتك الإلكترونية بشكل آمن — CIB، NBE، بنك مصر، فوري، باي موب والمزيد."
+        },
+        "chooseMode": {
+          "title": "اختر وضع التقريب",
+          "description": "التقريب العادي لأقرب ١٠ جنيه. المتوسط لأقرب ٥٠. القوي لأقرب ١٠٠. انت تختار اللي يناسب أسلوب حياتك."
+        },
+        "shopNormal": {
+          "title": "تسوق كالمعتاد",
+          "description": "كل مرة تدفع فيها، FakaInvest بيحسب الفرق تلقائياً ويحطه في انتظار الاستثمار."
+        },
+        "changeGrows": {
+          "title": "فكتك بتكبر",
+          "description": "الفكة بتتقال في الأدوات الاستثمارية اللي اخترتها. الذكاء الاصطناعي بيراقب ويوازن وينصحك ٢٤/٧."
+        }
+      },
+      "table": {
+        "title": "التقريب عملياً",
+        "headers": {
+          "paid": "المدفوع",
+          "roundedTo": "مقرب إلى",
+          "invested": "تم استثمار",
+          "mode": "الوضع"
+        }
+      },
+      "examples": {
+        "modes": {
+          "normal": "عادي",
+          "medium": "متوسط"
+        }
+      }
+    },
+    "investmentOptions": {
+      "badge": "فلوسك، اختيارك",
+      "title": {
+        "line1": "٦ طرق تنمي",
+        "highlight": "فكتك"
+      },
+      "description": "من شهادات البنوك الآمنة جداً للعقارات والأسهم — اختر واحدة أو خلّي الذكاء الاصطناعي يخلطهم كلهم.",
+      "riskSuffix": "",
+      "instruments": {
+        "savingsCertificates": {
+          "name": "شهادات ادخار",
+          "risk": "منخفض جداً",
+          "description": "أفضل شهادات البنوك المصرية مع مقارنة أسعار فورية عبر كل البنوك الكبرى.",
+          "badge": "الأكثر أماناً"
+        },
+        "fractionalRealEstate": {
+          "name": "ملكية عقارية جزئية",
+          "risk": "متوسط",
+          "description": "امتلك وحدات سكنية بالشراكة مع مستثمرين تانيين. عقار مصري حقيقي، ملكية جزئية.",
+          "badge": "رائج"
+        },
+        "stocks": {
+          "name": "أسهم",
+          "risk": "عالي",
+          "description": "البورصة المصرية plus أسهم كسرية دولية — تنوع عالمي.",
+          "badge": "نمو عالي"
+        },
+        "mutualFunds": {
+          "name": "صناديق استثمار",
+          "risk": "متوسط",
+          "description": "محافظ متنوعة تلقائياً متوافقة مع قدرتك على تحمل المخاطر.",
+          "badge": null
+        },
+        "digitalGold": {
+          "name": "ذهب رقمي",
+          "risk": "متوسط",
+          "description": "اشتري جرامات دهب مرتبطة بسعر السوق المصري اليومي. دهب حقيقي، راحة رقمية.",
+          "badge": "المفضل في مصر"
+        },
+        "blendedPortfolio": {
+          "name": "محفظة ممزوجة",
+          "risk": "ذكي",
+          "description": "الذكاء الاصطناعي يوزع فكتك تلقائياً على الخليط الأمثل حسب أهدافك.",
+          "badge": "بإدارة الذكاء الاصطناعي"
+        }
+      },
+      "disclaimer": "كل الاستثمارات منظمة ومتوافقة مع تعليمات هيئة الرقابة المالية المصرية."
+    },
+    "aiFeatures": {
+      "badge": "الذكاء الاصطناعي — عربي وإنجليزي",
+      "title": {
+        "line1": "مستشارك المالي الشخصي",
+        "highlight": "٢٤/٧."
+      },
+      "description": "الذكاء الاصطناعي لا يراقب أموالك فحسب — بل يفهمها، يتوقعها، ويحسنها باستمرار.",
+      "features": {
+        "smartNudges": {
+          "title": "تنبيهات ذكية",
+          "description": "\"أنفقت ٨٠٠ جنيه مصري على المواصلات هذا الشهر — خصم ٢٠٪ يضيف ١٦٠ جنيه للاستثمارات\""
+        },
+        "spendingAnalysis": {
+          "title": "تحليل الإنفاق",
+          "description": "تصنيف تلقائي لكل معاملة: طعام، مواصلات، ترفيه، فواتير. رسوم بيانية أسبوعية توضح أين تذهب أموالك بالفعل."
+        },
+        "futureSimulator": {
+          "title": "محاكاة المستقبل",
+          "description": "\"بهذا المعدل لمدة ٣ سنوات، محفظتك ستصل إلى ٤٥,٠٠٠ جنيه مصري\""
+        },
+        "financialHealthScore": {
+          "title": "مقياس الصحة المالية",
+          "description": "درجة من ١٠٠، محدثة أسبوعياً بناءً على الالتزام بالميزانية ومعدل الادخار. تتبع صحتك المالية."
+        },
+        "monthlyAIReport": {
+          "title": "تقرير الذكاء الاصطناعي الشهري",
+          "description": "ملخص الإنفاق الشهري + عوائد الاستثمار + نصيحة ذكية واحدة شخصية للشهر القادم."
+        },
+        "marketAlerts": {
+          "title": "تنبيهات السوق",
+          "description": "\"الذهب وصل إلى ذروته — فكر في بيع جزء من محفظتك الآن\""
+        }
+      },
+      "rulesSection": {
+        "title": "قواعد IFTTT الذكية",
+        "subtitle": "أنشئ أتمتة مخصصة تناسب أسلوب حياتك"
+      },
+      "rules": {
+        "uberRide": "كل رحلة أوبر/كريم → استثمر ٥ جنيه إضافية في الأسهم",
+        "fridayGold": "كل جمعة → تحويل تلقائي ٥٠ جنيه إلى الذهب الرقمي",
+        "cashback": "اكسب كاش باك → أضفه مباشرة إلى المحفظة الممزوجة",
+        "exceedFoodBudget": "تجاوز ميزانية الطعام → إيقاف التقريب لمدة ٣ أيام",
+        "endOfMonthSurplus": "فائض نهاية الشهر → استثمر ٥٠٪ من الفرق تلقائياً"
+      }
+    },
+    "features": {
+      "badge": "مجموعة الميزات الكاملة",
+      "title": {
+        "line1": "كل ما تحتاجه",
+        "highlight": "لتبني ثروتك"
+      },
+      "panels": {
+        "budgetManagement": {
+          "tag": "إدارة الميزانية",
+          "title": "متتعدش مصاريفك تاني",
+          "description": "حدد حدود الصرف لكل فئة — أكل، مواصلات، ترفيه. استلم تنبيهات فورية لما توصل لـ ٨٠% من حدك. الرسوم البيانية الشهرية تظهر تقدمك بشكل مرئي.",
+          "items": [
+            "حد صرف لكل فئة",
+            "تنبيهات ٨٠% من الحد",
+            "مقارنة شهر بشهر",
+            "إعادة توزيع الميزانية بالذكاء الاصطناعي"
+          ]
+        },
+        "financialGoals": {
+          "tag": "الأهداف المالية",
+          "title": "حدد هدف. الذكاء الاصطناعي يعمل الباقي",
+          "description": "قل لـ FakaInvest على إيه بتوفر — رحلة، دفعة أولى لشقة، جهاز جديد. جيميني بيحسب المبلغ اليومي المطلوب، يعمل وعاء توفير مستقل، ويبلغك أسبوعياً.",
+          "items": [
+            "سفر خلال ٦ شهور",
+            "دفعة أولى لشقة",
+            "صندوق جهاز جديد",
+            "توفير لكورس أو تعليم"
+          ]
+        },
+        "gamification": {
+          "tag": "الألعاب والتحديات",
+          "title": "خلي التوفير مجزي",
+          "description": "اكسب شارات، حافظ على استمرارية يومية، وتنافس مع أصدقائك — وكل ده وأنت بتكبر ثروتك فعلاً. التوفير لازم يكون شعور حلو.",
+          "items": [
+            "شارة 'استثمرت أول ١٠٠٠ جنيه!'",
+            "استمرارية الالتزام بالميزانية اليومية",
+            "لوحة متصدرين مع الأصدقاء (اختياري)",
+            "تحديات توفير شهرية"
+          ]
+        },
+        "familyWallet": {
+          "tag": "محفظة العائلة",
+          "title": "استثمر مع بعض كعيلة",
+          "description": "حساب عائلي مشترك مع صلاحيات مختلفة. الأب والأم يوزعوا ميزانية لكل فرد. تقارير موحدة وأهداف توفير مشتركة للعيلة كلها.",
+          "items": [
+            "حساب عائلي مشترك",
+            "ميزانية لكل فرد",
+            "تقارير مصروفات موحدة",
+            "أهداف توفير مشتركة"
+          ]
+        }
+      },
+      "cashbackSection": {
+        "title": "منظومة الكاش باك",
+        "subtitle": "اكسب وأتوماتيكياً الفلوس بتتستثمر",
+        "description": "FakaInvest بيتعامل مع محلات ومطاعم مصرية. كل عملية شراء من شركائنا بتديك نسبة مئوية — بتتستثمر تلقائياً في محفظتك من خلال منصة الشركاء في التطبيق.",
+        "morePartners": "+ شركاء تانيين"
+      },
+      "cashbackPartners": {
+        "stores": "محلات مصرية",
+        "restaurants": "مطاعم",
+        "ecommerce": "تسوق إلكتروني",
+        "cafes": "كافيهات وخدمة توصيل"
+      }
+    },
+    "footer": {
+      "title": {
+        "line1": "أموالك",
+        "highlight": "تستحق أحسن."
+      },
+      "description": "مفيش منافس في الفئة دي لمصر والعالم العربي. FakaInvest هي الأولى. السوق جاهز.",
+      "cta": "قريباً — انضم لقائمة الانتظار",
+      "stats": {
+        "targetMarket": {
+          "value": "العالم العربي",
+          "label": "السوق المستهدف"
+        },
+        "competitors": {
+          "value": "0",
+          "label": "منافس مباشر"
+        },
+        "timeline": {
+          "value": "12 شهر",
+          "label": "مدة الإطلاق الكامل"
+        }
+      },
+      "footer": {
+        "tagline": "منصة استثمار الفكة الذكية · مدعومة بالذكاء الاصطناعي",
+        "info": "مصممة لمصر والعالم العربي · الإصدار 1.0 · أبريل 2026",
+        "copyright": "SalamHack {year} © صنع بواسطة",
+        "team": "فريق Vortex"
+      }
+    },
+    "navbar": {
+      "login": "تسجيل الدخول",
+      "logo": {
+        "faka": "فكة",
+        "invest": "انفست"
+      },
+      "links": {
+        "howItWorks": "ازاي بيشتغل",
+        "investmentOptions": "خيارات الاستثمار",
+        "aiFeatures": "مميزات الذكاء الاصطناعي",
+        "features": "الميزات"
+      },
+      "cta": "لوحة التحكم"
+    }
+  },
+  "DashboardPage": {
+    "greeting": "صباح الخير",
+    "currency": "ج",
+    "currentBalance": "الرصيد الحالي",
+    "allTime": "طوال الوقت",
+    "invested": "تم الاستثمار",
+    "pendingRoundUps": "التقريب المستحق",
+    "healthScore": "مؤشر الصحة المالية",
+    "streak": "الاستمرارية",
+    "days": "أيام",
+    "Saver_Tier_4": "الخبير المالي",
+    "Saver_Tier_3": "المستثمر المحنك",
+    "Saver_Tier_2": "المستثمر الذكي",
+    "Saver_Tier_1": "المستثمر المبتدئ",
+    "roundUpMode": "وضع التقريب",
+    "None": "ايقاف",
+    "Aggressive": "شديد",
+    "Normal": "عادي",
+    "Medium": "متوسط",
+    "Off": "لا يعمل",
+    "Round10": "قرب لأقرب ١٠ جنيه",
+    "Round20": "قرب لأقرب ٢٠ جنيه",
+    "Round50": "قرب لأقرب ٥٠ جنيه",
+    "askGemini": "اسأل المستشار المالي",
+    "askGeminiDesc": "\"ليه مؤشري زاد الأسبوع ده؟\"",
+    "recentRoundUps": "التقريب المستحق",
+    "viewAll": "عرض الكل",
+    "noRecentRoundUps": "لا يوجد تقريب مستحق"
+  },
+  "CoreLayout": {
+    "dashboard": "لوحة التحكم",
+    "activity": "النشاط",
+    "portfolio": "المحفظة",
+    "wallet": "المحفظة",
+    "transactions": "المعاملات",
+    "chat": "الذكاء الاصطناعي",
+    "goals": "الأهداف",
+    "budget": "الميزانية",
+    "rules": "القواعد",
+    "insights": "الرؤى",
+    "report": "التقرير",
+    "market": "السوق",
+    "realEstate": "العقارات",
+    "family": "العائلة",
+    "rewards": "المكافآت",
+    "referral": "الإحالة",
+    "profile": "الملف الشخصي",
+    "more": "المزيد"
+  },
+  "AppSidebar": {
+    "groups": {
+      "banking": "البنك",
+      "planAndGrow": "خطط وانمو",
+      "discover": "اكتشف",
+      "account": "الحساب"
+    },
+    "nav": {
+      "home": "الرئيسية",
+      "activity": "النشاط",
+      "portfolio": "المحفظة",
+      "wallet": "المحفظة المالية",
+      "transactions": "المعاملات",
+      "geminiAI": "المستشار المالي",
+      "goals": "الأهداف",
+      "budget": "الميزانية",
+      "rules": "القواعد",
+      "insights": "التحليلات",
+      "monthlyReport": "التقرير الشهري",
+      "marketOffers": "السوق والعروض",
+      "realEstate": "العقارات",
+      "familyWallet": "محفظة الأسرة",
+      "rewards": "المكافآت",
+      "referEarn": "أحل واكسب",
+      "profile": "الملف الشخصي"
+    },
+    "brand": {
+      "name": "فكة إنفست",
+      "tagline": "ذكاء اصطناعي · العالم العربي"
+    }
+  },
+  "SearchTrigger": {
+    "searchAnything": "بحث في أي حاجة…",
+    "search": "بحث"
+  },
+  "CommandPalette": {
+    "searchPlaceholder": "ابحث عن الصفحات، المعاملات، الأهداف...",
+    "noResults": "لا توجد نتائج.",
+    "pages": "الصفحات",
+    "recentTransactions": "المعاملات الأخيرة",
+    "holdings": "الممتلكات",
+    "goals": "الأهداف",
+    "dialogTitle": "لوحة الأوامر",
+    "dialogDescription": "ابحث عن الصفحات، المعاملات، الممتلكات والأهداف",
+    "home": "الرئيسية",
+    "activity": "النشاط",
+    "portfolio": "المحفظة",
+    "wallet": "المحفظة",
+    "transactions": "المعاملات",
+    "chat": "الذكاء الاصطناعي",
+    "budget": "الميزانية",
+    "rules": "القواعد",
+    "insights": "الرؤى",
+    "report": "التقرير الشهري",
+    "market": "السوق والعروض",
+    "realEstate": "العقارات",
+    "familyWallet": "محفظة الأسرة",
+    "rewards": "المكافآت",
+    "referral": "أحل واكسب",
+    "profile": "الملف الشخصي",
+    "noData": "لا توجد بيانات"
+  },
+  "BottomNav": {
+    "home": "الرئيسية",
+    "activity": "النشاط",
+    "wallet": "المحفظة",
+    "portfolio": "البورتوفوليو",
+    "more": "المزيد"
+  },
+  "Notifications": {
+    "title": "الاشعارات",
+    "markAllRead": "قراءة الكل",
+    "empty": "لا يوجد اشعارات"
+  },
+  "Activity": {
+    "title": "الفكة",
+    "subtitle": "سجل النشاط",
+    "totalRoundUp": "إجمالي الفكة",
+    "pending": "قيد التنفيذ",
+    "items": "عناصر",
+    "readyToInvest": "جاهز للاستثمار",
+    "investNow": "استثمر الآن",
+    "noTransactions": "لا توجد معاملات"
+  },
+  "Auth": {
+    "appName": "فكة إنفست",
+    "appDescription": "للعالم العربي",
+    "welcomeBack": "مرحباً بعودتك",
+    "createAccount": "أنشئ حسابك",
+    "signinDescription": "سجل الدخول لمتابعة إدارة أموالك.",
+    "signupDescription": "ابدأ الادخار والاستثمار في أقل من دقيقة.",
+    "displayName": "الاسم المعروض",
+    "displayNamePlaceholder": "Abdelrahman Ayman",
+    "email": "البريد الإلكتروني",
+    "emailPlaceholder": "example@gmail.com",
+    "password": "كلمة المرور",
+    "passwordPlaceholder": "8 أحرف على الأقل",
+    "showPassword": "إظهار كلمة المرور",
+    "hidePassword": "إخفاء كلمة المرور",
+    "signinButton": "تسجيل الدخول",
+    "signupButton": "إنشاء حساب",
+    "noAccount": "ليس لديك حساب؟",
+    "hasAccount": "لديك حساب بالفعل؟",
+    "createOne": "أنشئ واحداً",
+    "signin": "تسجيل الدخول",
+    "termsAgreement": "بالمتابعة أنت توافق على شروط الاستخدام وسياسة الخصوصية لـ فكا انفيست.",
+    "welcome": "مرحباً بك في فكا انفيست!",
+    "accountCreated": "تم إنشاء الحساب بنجاح",
+    "errors": {
+      "signupFailed": "فشل إنشاء الحساب",
+      "signinFailed": "فشل تسجيل الدخول",
+      "networkError": "خطأ في الشبكة. يرجى التحقق من اتصالك."
+    }
+  },
+  "Portfolio": {
+    "your_portfolio": "محفظتك",
+    "holdings": "الممتلكات",
+    "total_value": "إجمالي القيمة",
+    "return": "العائد",
+    "currency": "جنيه",
+    "holdings_not_found": "لا يوجد ممتلكات",
+    "allocation": "التوزيع",
+    "time_period": "الفترة الزمنية",
+    "all_time": "كل الوقت",
+    "individual_holdings": "الممتلكات الفردية",
+    "no_holdings_yet": "لا يوجد ممتلكات بعد"
+  },
+  "ContactsPage": {
+    "title": "جهات الاتصال",
+    "contactsInfo": "{count} جهة اتصال · {favorites} مفضلة",
+    "sync": "مزامنة",
+    "searchPlaceholder": "ابحث عن مستخدمين بالاسم أو البريد الإلكتروني...",
+    "searchResults": "نتائج البحث",
+    "noUsersFound": "لم يتم العثور على مستخدمين",
+    "add": "إضافة",
+    "allContacts": "جميع جهات الاتصال",
+    "favorites": "المفضلة",
+    "noContacts": "لا توجد جهات اتصال",
+    "noContactsHint": "ابحث عن المستخدمين أعلاه لإضافتهم، أو أرسل أموالاً لشخص ما أولاً",
+    "noFavorites": "لا توجد مفضلات",
+    "noFavoritesHint": "قم بتحديد جهات الاتصال المفضلة لرؤيتها هنا",
+    "lastTransaction": "آخر معاملة",
+    "sendMoney": "إرسال أموال",
+    "removeFromFavorites": "إزالة من المفضلة",
+    "addToFavorites": "إضافة إلى المفضلة",
+    "removeContact": "حذف جهة الاتصال",
+    "alreadyInContacts": "{name} موجود بالفعل في جهات الاتصال",
+    "contactAdded": "تم إضافة {name} إلى جهات الاتصال",
+    "removedFromFavorites": "تم إزالة {name} من المفضلة",
+    "addedToFavorites": "تم إضافة {name} إلى المفضلة",
+    "contactRemoved": "تم حذف {name} من جهات الاتصال",
+    "enterValidAmount": "أدخل مبلغاً صالحاً",
+    "failedToSend": "فشل الإرسال",
+    "sentSuccess": "تم إرسال {amount} جنيه إلى {name}",
+    "addedNewContacts": "تم إضافة {count} جهات اتصال جديدة من المعاملات",
+    "noNewContacts": "لا توجد جهات اتصال جديدة",
+    "failedToSync": "فشلت المزامنة",
+    "sendTo": "إرسال إلى {name}",
+    "amountEGP": "المبلغ (جنيه)",
+    "sendNow": "إرسال الآن",
+    "addContact": "إضافة جهة اتصال",
+    "cancel": "إلغاء",
+    "addToContacts": "إضافة إلى جهات الاتصال"
+  },
+  "PayPage": {
+    "userNotFound": "لم يتم العثور على المستخدم. الرابط قد يكون غير صالح أو تم حذف المستخدم.",
+    "failedToLoadUser": "فشل تحميل بيانات المستخدم",
+    "networkError": "خطأ في الشبكة. يرجى المحاولة مرة أخرى.",
+    "invalidUserId": "معرف مستخدم غير صالح",
+    "enterValidAmount": "يرجى إدخال مبلغ صالح",
+    "paymentFailed": "فشل الدفع",
+    "sentSuccess": "تم إرسال {amount} جنيه إلى {name}",
+    "paymentLinkCopied": "تم نسخ رابط الدفع الخاص بك!",
+    "backToWallet": "العودة إلى المحفظة",
+    "viewContacts": "عرض جهات الاتصال",
+    "yourPaymentLink": "هذا رابط الدفع الخاص بك!",
+    "sharePaymentLinkMessage": "شارك هذا الرابط مع الآخرين لاستلام المدفوعات.",
+    "copyPaymentLink": "نسخ رابط الدفع الخاص بك",
+    "paymentSent": "تم إرسال الدفع!",
+    "sentAmountTo": "لقد أرسلت {amount} جنيه إلى {name}",
+    "securePaymentMessage": "المدفوعات آمنة ومحمية بواسطة FakaInvest",
+    "amountEGP": "المبلغ (جنيه)",
+    "noteOptional": "ملاحظة (اختياري)",
+    "notePlaceholder": "ما هو هذا المبلغ؟",
+    "processing": "جاري المعالجة...",
+    "sendButton": "إرسال {amount} جنيه",
+    "instantFreeTransfer": "التحويل فوري ومجاني",
+    "invalidLinkMessage": "قد يكون رابط الدفع غير صالح أو تم حذف المستخدم."
+  },
+  "WalletPage": {
+    "yourMoneyVirtualCard": "أموالك، البطاقة الافتراضية والتحويلات",
+    "wallet": "المحفظة",
+    "availableBalance": "الرصيد المتاح",
+    "instantZeroFees": "فوري · بدون رسوم داخل فاكا إنفست",
+    "send": "إرسال",
+    "request": "طلب",
+    "deposit": "إيداع",
+    "copyLink": "نسخ الرابط",
+    "paymentLinkCopied": "تم نسخ رابط الدفع",
+    "quickContacts": "جهات الاتصال السريعة",
+    "allTransactions": "جميع المعاملات",
+    "all": "الكل",
+    "allMoneyInOut": "كل الأموال الداخلة والخارجة",
+    "recentTransfers": "التحويلات الأخيرة",
+    "viewAll": "عرض الكل",
+    "noTransfersYet": "لا توجد تحويلات بعد",
+    "tryDepositingOrPaying": "جرب إيداع أموال أو إجراء دفعة",
+    "virtual": "افتراضية",
+    "cardHolder": "حامل البطاقة",
+    "expires": "تنتهي",
+    "cardFrozen": "البطاقة مجمدة",
+    "hide": "إخفاء",
+    "show": "إظهار",
+    "copy": "نسخ",
+    "cardNumberCopied": "تم نسخ رقم البطاقة",
+    "unfreeze": "إلغاء التجميد",
+    "freeze": "تجميد",
+    "limits": "الحدود",
+    "cardLimits": "حدود البطاقة",
+    "adjust": "تعديل",
+    "daily": "يومي",
+    "monthly": "شهري",
+    "ofDailyLimitRemaining": "من الحد اليومي المتبقي",
+    "dailyLimitReached": "تم الوصول إلى الحد اليومي",
+    "perTx": "لكل معاملة",
+    "online": "أونلاين",
+    "on": "مفعل",
+    "off": "معطل",
+    "intl": "دولي",
+    "simulateCardPurchase": "محاكاة شراء بالبطاقة",
+    "simulateDescription": "مجرد محاكاة وليست عملية شراء حقيقية",
+    "merchant": "التاجر",
+    "authorizePurchase": "الموافقة على الشراء",
+    "searchRecipient": "البحث عن المستلم",
+    "searchByNameOrEmail": "البحث بالاسم أو البريد الإلكتروني...",
+    "amountEGP": "المبلغ (جنيه)",
+    "sendInstantly": "إرسال فوري",
+    "sendMoney": "إرسال أموال",
+    "requestMoney": "طلب أموال",
+    "noteOptional": "ملاحظة (اختياري)",
+    "notePlaceholder": "ما هو هذا المبلغ؟",
+    "sendRequest": "إرسال الطلب",
+    "paymentRequests": "طلبات الدفع",
+    "noPendingRequests": "لا توجد طلبات دفع معلقة",
+    "note": "ملاحظة",
+    "requested": "تم الطلب",
+    "pay": "دفع",
+    "reject": "رفض",
+    "depositFunds": "إيداع أموال",
+    "bankTransfer": "تحويل بنكي",
+    "fundsCreditedInstantly": "سيتم إضافة الأموال فوراً",
+    "depositButton": "إيداع {amount} جنيه",
+    "enterValidAmount": "أدخل مبلغاً صالحاً",
+    "pickRecipient": "اختر المستلم",
+    "sentSuccess": "تم إرسال {amount} جنيه إلى {name}",
+    "requestSent": "تم طلب {amount} جنيه من {name}",
+    "requestFailed": "فشل الطلب",
+    "paymentSent": "تم إرسال الدفع",
+    "failedToAccept": "فشل قبول الطلب",
+    "requestRejected": "تم رفض الطلب",
+    "failedToReject": "فشل رفض الطلب",
+    "depositedSuccess": "تم إيداع {amount} جنيه",
+    "transactionDeclined": "المعاملة مرفوضة",
+    "cardCharged": "تم شحن البطاقة بمبلغ {amount} جنيه",
+    "cardUnfrozen": "تم إلغاء تجميد البطاقة",
+    "sent": "مرسل",
+    "received": "مستلم",
+    "topup": "شحن",
+    "card": "بطاقة"
+  }
+}
