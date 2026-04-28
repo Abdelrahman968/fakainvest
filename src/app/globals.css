@@ -5,7 +5,6 @@
 
 @custom-variant dark (&:is(.dark *));
 
-
 @layer base {
   :root {
     --font-sans: var(--font-exo);
@@ -17,7 +16,6 @@
     --font-display: var(--font-cairo);
   }
 }
-
 
 @theme inline {
 
@@ -104,7 +102,6 @@
   --animate-accordion-up: accordion-up 0.2s ease-out;
 }
 
-
 :root {
   --background: 222 60% 11%;
   --foreground: 220 30% 96%;
@@ -177,6 +174,7 @@
 
   --container-padding: 2rem;
   --container-2xl: 1400px;
+  --sidebar: hsl(0 0% 98%);
 }
 
 .dark {
@@ -219,8 +217,8 @@
   --sidebar-accent-foreground: 220 30% 96%;
   --sidebar-border: 220 35% 18%;
   --sidebar-ring: 199 89% 65%;
+  --sidebar: hsl(240 5.9% 10%);
 }
-
 
 @keyframes accordion-down {
   from {
@@ -312,7 +310,6 @@
   }
 }
 
-
 @layer base {
   * {
     @apply border-border;
@@ -359,7 +356,6 @@
   }
 }
 
-
 @layer base {
   ::-webkit-scrollbar {
     width: 10px;
@@ -394,9 +390,7 @@
   }
 }
 
-
 @layer components {
-
 
   .glass-card {
     @apply rounded-2xl border border-border/60 backdrop-blur-xl;
@@ -408,7 +402,6 @@
     @apply inline-flex items-center gap-1.5 px-2.5 py-1 rounded-full text-xs font-semibold;
   }
 
-
   .gradient-text {
     background: var(--gradient-accent);
     -webkit-background-clip: text;
@@ -416,14 +409,12 @@
     color: transparent;
   }
 
-
   .gold-text {
     background: var(--gradient-gold);
     -webkit-background-clip: text;
     background-clip: text;
     color: transparent;
   }
-
 
   .shimmer {
     background: linear-gradient(90deg,
@@ -437,7 +428,6 @@
   .animate-in {
     animation: fade-in 0.4s var(--transition-smooth) both;
   }
-
 
   .glow-pulse {
     animation: pulse-glow 2.4s ease-in-out infinite;
@@ -458,7 +448,6 @@
     @apply outline-none ring-2 ring-ring ring-offset-2 ring-offset-background;
   }
 }
-
 
 @layer utilities {
   .container {

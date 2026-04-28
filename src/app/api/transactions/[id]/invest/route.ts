@@ -1,14 +1,16 @@
-import { NextResponse } from "next/server";
+import { NextRequest, NextResponse } from "next/server";
 import { getSession } from "@/lib/auth";
 import { connectDB } from "@/lib/mongoose";
 import { Transaction } from "@/lib/models/Transaction";
 import { Wallet } from "@/lib/models/Wallet";
 
 export async function POST(
-  request: Request,
-  { params }: { params: { id: string } },
+  request: NextRequest,
+  context: { params: Promise<{ id: string }> },
 ) {
   try {
+    const { id } = await context.params;
+
     const session = await getSession();
     if (!session?.sub) {
       return NextResponse.json({ error: "Unauthorized" }, { status: 401 });
@@ -17,7 +19,7 @@ export async function POST(
     await connectDB();
 
     const transaction = await Transaction.findOne({
-      id: params.id,
+      id: id,
       userId: session.sub,
     });
 
