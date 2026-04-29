@@ -1,9 +1,11 @@
 "use client";
 
+import { useMemo } from "react";
 import { useProfile } from "@/hooks/useProfile";
 import { useWallet } from "@/hooks/useWallet";
 import { useTransactions } from "@/hooks/useTransactions";
-import { useUserSettings } from "@/hooks/useUserSettings";
+import { useUserSettings, type RoundUpMode } from "@/hooks/useUserSettings";
+import { useAuth } from "@/contexts/AuthContext";
 import DashboardHeader from "@/features/dashboard/DashboardHeader";
 import BalanceCard from "@/features/dashboard/BalanceCard";
 import HealthScoreCard from "@/features/dashboard/HealthScoreCard";
@@ -22,35 +24,93 @@ const calculateStreak = (joinDate?: string) => {
   return Math.min(diffDays, Math.floor(diffDays * 0.8));
 };
 
+const getMockPendingRoundUps = (
+  mode: string,
+  customAmount: number = 10,
+): number => {
+  switch (mode) {
+    case "Eco":
+      return 5;
+    case "Boost":
+      return 10;
+    case "Fixed20":
+      return 20;
+    case "Custom":
+      return customAmount;
+    case "None":
+      return 0;
+    default:
+      return 5;
+  }
+};
+
 const Dashboard = () => {
+  const { user } = useAuth();
   const { profile, loading: profileLoading } = useProfile();
   const { wallet, transfers, loading: walletLoading } = useWallet();
-  const { transactions, loading: transactionsLoading } = useTransactions();
+  const {
+    transactions,
+    loading: transactionsLoading,
+    pendingRoundUps: realPendingRoundUps,
+  } = useTransactions();
   const {
     settings,
     updateSettings,
     loading: settingsLoading,
   } = useUserSettings();
 
-  const mode =
-    (settings?.roundUpMode as "None" | "Normal" | "Medium" | "Aggressive") ||
-    "None";
+  const mode = (settings?.roundUpMode as RoundUpMode) || "Boost";
+  const customRoundUpAmount = settings?.customRoundUpAmount ?? 10;
+  const roundUpEnabled = settings?.roundUpEnabled ?? true;
+
+  const pendingRoundUps = useMemo(() => {
+    if (realPendingRoundUps > 0) {
+      return realPendingRoundUps;
+    }
+    if (mode === "None" || !roundUpEnabled) {
+      return 0;
+    }
+    return getMockPendingRoundUps(mode, customRoundUpAmount);
+  }, [realPendingRoundUps, mode, roundUpEnabled, customRoundUpAmount]);
 
   const handleModeChange = async (
-    newMode: "None" | "Normal" | "Medium" | "Aggressive",
+    newMode: RoundUpMode,
+    customAmount?: number,
   ) => {
-    await updateSettings({ roundUpMode: newMode });
+    const updateData: any = { roundUpMode: newMode };
+
+    if (newMode === "Custom" && customAmount !== undefined) {
+      updateData.customRoundUpAmount = customAmount;
+    }
+
+    if (newMode === "None") {
+      updateData.roundUpEnabled = false;
+    } else if (roundUpEnabled === false) {
+      updateData.roundUpEnabled = true;
+    }
+
+    await updateSettings(updateData);
+  };
+
+  const handleEnabledChange = async (enabled: boolean) => {
+    if (!enabled) {
+      await updateSettings({
+        roundUpEnabled: false,
+        roundUpMode: "None",
+      });
+    } else {
+      const newMode = mode === "None" ? "Eco" : mode;
+      await updateSettings({
+        roundUpEnabled: true,
+        roundUpMode: newMode,
+      });
+    }
   };
 
   const totalInvested =
     transfers
       ?.filter((t) => t.type === "deposit" || t.type === "topup")
       .reduce((sum: number, t) => sum + t.amount, 0) || 0;
-
-  const pendingRoundUps =
-    transactions
-      ?.filter((t) => t.status === "Pending")
-      .reduce((sum: number, t) => sum + t.roundUp, 0) || 0;
 
   const liveBalance = wallet?.balance || 0;
   const streakVal = calculateStreak(profile?.created_at);
@@ -100,9 +160,7 @@ const Dashboard = () => {
   return (
     <div className="space-y-6">
       <DashboardHeader
-        displayName={profile?.display_name || "there"}
-        avatarEmoji={profile?.avatar_emoji}
-        initial={profile?.display_name?.[0]?.toUpperCase() || "U"}
+        displayName={profile?.display_name || user?.displayName || "there"}
       />
 
       <BalanceCard
@@ -116,7 +174,14 @@ const Dashboard = () => {
         <StreakCard streak={streakVal} badge={badgeLevel} />
       </div>
 
-      <RoundUpModeSelector mode={mode} onModeChange={handleModeChange} />
+      <RoundUpModeSelector
+        mode={mode}
+        customAmount={customRoundUpAmount}
+        enabled={roundUpEnabled}
+        onModeChange={handleModeChange}
+        onEnabledChange={handleEnabledChange}
+        pendingAmount={pendingRoundUps}
+      />
 
       <GeminiBanner />
 

@@ -26,6 +26,7 @@ export interface AuthUser {
   totalInvested?: number;
   pendingRoundUps?: number;
   roundUpMode?: string;
+  roundUpEnabled?: boolean;
   frozen?: boolean;
   dailyLimit?: number;
   monthlyLimit?: number;
@@ -45,6 +46,7 @@ interface AuthContextValue {
   signOut: () => Promise<void>;
   setUser: (user: AuthUser | null) => void;
   refreshUser: () => Promise<void>;
+  updateRoundUpSettings: (enabled: boolean, mode: string) => Promise<void>;
 }
 
 const AuthContext = createContext<AuthContextValue>({
@@ -53,6 +55,7 @@ const AuthContext = createContext<AuthContextValue>({
   signOut: async () => {},
   setUser: () => {},
   refreshUser: async () => {},
+  updateRoundUpSettings: async () => {},
 });
 
 export function AuthProvider({ children }: { children: ReactNode }) {
@@ -87,6 +90,7 @@ export function AuthProvider({ children }: { children: ReactNode }) {
             totalInvested: data.user.totalInvested,
             pendingRoundUps: data.user.pendingRoundUps,
             roundUpMode: data.user.roundUpMode,
+            roundUpEnabled: data.user.roundUpEnabled,
             frozen: data.user.frozen,
             dailyLimit: data.user.dailyLimit,
             monthlyLimit: data.user.monthlyLimit,
@@ -119,6 +123,25 @@ export function AuthProvider({ children }: { children: ReactNode }) {
     await fetchCurrentUser();
   }, [fetchCurrentUser]);
 
+  const updateRoundUpSettings = useCallback(
+    async (enabled: boolean, mode: string) => {
+      try {
+        const res = await fetch("/api/user/settings", {
+          method: "PATCH",
+          headers: { "Content-Type": "application/json" },
+          body: JSON.stringify({ roundUpEnabled: enabled, roundUpMode: mode }),
+        });
+
+        if (res.ok) {
+          await refreshUser();
+        }
+      } catch (error) {
+        console.error("Failed to update RoundUp settings:", error);
+      }
+    },
+    [refreshUser],
+  );
+
   useEffect(() => {
     const timeout = setTimeout(() => {
       fetchCurrentUser();
@@ -137,7 +160,14 @@ export function AuthProvider({ children }: { children: ReactNode }) {
 
   return (
     <AuthContext.Provider
-      value={{ user, loading, signOut, setUser, refreshUser }}
+      value={{
+        user,
+        loading,
+        signOut,
+        setUser,
+        refreshUser,
+        updateRoundUpSettings,
+      }}
     >
       {children}
     </AuthContext.Provider>

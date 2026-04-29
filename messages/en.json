@@ -387,6 +387,7 @@
     "rewards": "Rewards",
     "referral": "Refer & Earn",
     "profile": "Profile",
+    "contacts": "Contacts",
     "more": "More"
   },
   "AppSidebar": {
@@ -658,6 +659,168 @@
     "received": "Received",
     "topup": "Top-up",
     "card": "Card"
-
+  },
+  "Transactions": {
+    "title": "Transactions",
+    "subtitle": "Every money move",
+    "exportCsv": "Export CSV",
+    "moneyIn": "Money in",
+    "moneyOut": "Money out",
+    "net": "Net",
+    "searchPlaceholder": "Search merchants, notes…",
+    "noTransactions": "No transactions match your filters."
+  },
+  "WalletPageVisa": {
+    "activeRoundUps": "Active",
+    "virtual": "Virtual Card",
+    "cardHolder": "Card Holder",
+    "expires": "Expires",
+    "cardFrozen": "Card Frozen",
+    "yourMoneyVirtualCard": "Your money & virtual card",
+    "wallet": "Wallet",
+    "enterValidAmount": "Enter a valid amount",
+    "pickRecipient": "Pick a recipient",
+    "sentSuccess": "Sent EGP {amount} to {name}",
+    "requestSent": "Requested EGP {amount} from {name}",
+    "requestFailed": "Failed to send payment request",
+    "paymentSent": "Payment sent",
+    "failedToAccept": "Failed to accept request",
+    "requestRejected": "Request rejected",
+    "failedToReject": "Failed to reject request",
+    "depositedSuccess": "Deposited EGP {amount}",
+    "transactionDeclined": "Transaction declined",
+    "cardCharged": "Charged EGP {amount}",
+    "cardUnfrozen": "Card unfrozen",
+    "limits": "Limits",
+    "spentToday": "Spent today",
+    "dailyLimit": "Daily limit",
+    "spentThisMonth": "Spent this month",
+    "monthlyLimit": "Monthly limit",
+    "perTransaction": "Per transaction",
+    "onlinePayments": "Online payments",
+    "contactless": "Contactless",
+    "international": "International",
+    "atm": "ATM withdrawals",
+    "simulatePurchase": "Simulate purchase",
+    "send": "Send",
+    "request": "Request",
+    "deposit": "Deposit",
+    "roundUpMode": "RoundUp Mode",
+    "roundUpDescription": "Round up purchases to save the difference",
+    "customAmount": "Custom Amount",
+    "applyCustom": "Apply Custom Amount",
+    "close": "Close",
+    "cardDetails": "Card details",
+    "hideDetails": "Hide details",
+    "showDetails": "Show details",
+    "roundUpDisabled": "RoundUp disabled",
+    "roundUpEco": "Round to nearest 5 EGP",
+    "roundUpBoost": "Round to nearest 10 EGP",
+    "roundUpFixed20": "Add fixed 20 EGP per transaction",
+    "roundUpCustom": "Fixed amount you choose",
+    "invalidAmount": "Invalid Amount",
+    "minCustomAmount": "Minimum custom amount is 5 EGP",
+    "maxCustomAmount": "Maximum custom amount is 100 EGP",
+    "egp": "EGP",
+    "customModeActivated": "Custom Mode Activated",
+    "addingAmount": "Adding {amount} EGP to each purchase",
+    "customRoundUpAmount": "Custom RoundUp Amount",
+    "amountPerTransaction": "Amount per transaction",
+    "minMaxCustomAmount": "Minimum: 5 EGP | Maximum: 100 EGP",
+    "monthlyImpact": "Monthly impact (30 transactions)",
+    "monthlyImpactDescription": "This amount will be saved automatically from your purchases",
+    "cancel": "Cancel",
+    "applyCustomAmount": "Apply Custom Amount",
+    "roundUpSettings": "RoundUp Settings",
+    "roundUpOff": "RoundUp Off",
+    "enableRoundUp": "Enable RoundUp",
+    "selectRoundUpMode": "Select RoundUp Mode",
+    "roundUpDisabledMessage": "RoundUp is currently disabled",
+    "enableToStartSaving": "Toggle the switch above to start saving automatically",
+    "roundUpEnabled": "RoundUp Enabled",
+    "roundUpTurnedOn": "RoundUp has been turned on. Your purchases will now be rounded up.",
+    "roundUpTurnedOff": "RoundUp has been turned off. No more automatic savings.",
+    "DashboardPage": {
+      "roundUpMode": "RoundUp Mode",
+      "roundUpDescription": "Round up purchases to save the difference",
+      "None": "Off",
+      "Eco": "Eco",
+      "Boost": "Boost",
+      "Fixed20": "Fixed 20",
+      "Custom": "Custom",
+      "saved": "saved"
+    }
+  },
+  "Chat": {
+    "title": "FakaBot",
+    "online": "Online · Your AI Financial Advisor",
+    "clearChat": "Clear chat",
+    "placeholder": "Ask anything about your money...",
+    "welcomeTitle": "👋 Welcome to FakaInvest!",
+    "welcomeMessage": "I'm FakaBot, your smart financial advisor. I can see your balance, transactions, and goals to help you achieve your halal financial goals 🚀",
+    "suggestionsTitle": "Suggestions to get started"
+  },
+  "ProfilePage": {
+    "header": {
+      "subtitle": "Profile",
+      "title": "Account"
+    },
+    "common": {
+      "addName": "Add your name"
+    },
+    "stats": {
+      "daysActive": "Days active",
+      "streak": "Streak",
+      "score": "Score"
+    },
+    "items": {
+      "linkedAccounts": "Linked accounts",
+      "linkedAccountsValue": "Fawry · CIB",
+      "notifications": "Notifications",
+      "on": "On",
+      "off": "Off",
+      "security": "Security",
+      "securityValue": "Face ID",
+      "help": "Help & support"
+    },
+    "buttons": {
+      "edit": "Edit",
+      "saveChanges": "Save changes",
+      "signOut": "Sign out"
+    },
+    "editProfile": {
+      "title": "Edit profile",
+      "displayName": "Display name",
+      "email": "Email",
+      "emailNote": "Changing your email will require you to sign in again with the new address",
+      "phone": "Phone",
+      "phonePlaceholder": "+20 100 000 0000"
+    },
+    "avatarPicker": {
+      "title": "Pick an avatar"
+    },
+    "validation": {
+      "nameLength": "Name must be 2–40 characters",
+      "nameChars": "Name has invalid characters",
+      "email": "Enter a valid email",
+      "phone": "Enter a valid phone"
+    },
+    "toasts": {
+      "emailUpdated": "Email updated successfully!",
+      "emailChangedDescription": "Your email has been changed to {email}",
+      "linkingComingSoon": "Bank linking coming soon",
+      "securityComingSoon": "Security settings coming soon",
+      "supportEmail": "Support: help@fakainvest.app",
+      "avatarUpdated": "Avatar updated",
+      "profileUpdated": "Profile updated successfully",
+      "emailChanged": "Email address changed",
+      "pleaseSignInAgain": "Please sign in again with your new email address"
+    },
+    "aria": {
+      "changeAvatar": "Change avatar"
+    },
+    "footer": {
+      "version": "FakaInvest v0.1 · Made with ♥ for salam hack"
+    }
   }
 }

@@ -26,7 +26,7 @@ export async function seedNewUser(
   await Profile.create({ userId: uid, displayName, email });
 
   // ── Wallet (EGP 5,000 starter) ───────────────────────────────────────────
-  await Wallet.create({ userId: uid, balance: 5000 });
+  await Wallet.create({ userId: uid.toString(), balance: 5000 });
 
   // ── Rewards ──────────────────────────────────────────────────────────────
   await Reward.create({ userId: uid, points: 120, level: 1, streakDays: 3 });

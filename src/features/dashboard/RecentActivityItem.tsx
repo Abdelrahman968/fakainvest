@@ -23,13 +23,13 @@ interface RecentActivityItemProps {
   id: string;
   merchant: string;
   category: string;
-  roundUp: number;
+  roundUp?: number; // جعلها اختيارية
 }
 
 export default function RecentActivityItem({
   merchant,
   category,
-  roundUp,
+  roundUp = 0, // قيمة افتراضية 0
 }: RecentActivityItemProps) {
   const IconComponent = categoryIcons[category] || Coffee;
 

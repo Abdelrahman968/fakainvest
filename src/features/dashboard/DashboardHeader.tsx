@@ -4,16 +4,11 @@ import { useTranslations } from "next-intl";
 
 interface DashboardHeaderProps {
   displayName: string;
-  avatarEmoji?: string;
-  initial: string;
 }
 
-export default function DashboardHeader({
-  displayName,
-  avatarEmoji,
-  initial,
-}: DashboardHeaderProps) {
+export default function DashboardHeader({ displayName }: DashboardHeaderProps) {
   const t = useTranslations("DashboardPage");
+
   return (
     <header className="flex items-center justify-between">
       <div>
@@ -23,7 +18,7 @@ export default function DashboardHeader({
         </h1>
       </div>
       <div className="flex h-11 w-11 items-center justify-center rounded-2xl bg-gradient-accent font-display text-lg font-bold text-primary-foreground shadow-glow">
-        {displayName.split(" ")[1]?.[0] || avatarEmoji || initial || "U"}
+        {displayName.split(" ")[0].charAt(0) || "User"}
       </div>
     </header>
   );

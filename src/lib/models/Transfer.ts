@@ -12,6 +12,8 @@ export interface ITransfer extends Document {
   amount: number;
   note?: string;
   method: TransferMethod;
+  originalAmount?: number;
+  roundUpAmount?: number;
   createdAt: Date;
   updatedAt: Date;
 }
@@ -40,6 +42,8 @@ const transferSchema = new Schema<ITransfer>(
     amount: { type: Number, required: true, min: 0.01 },
     note: { type: String, trim: true, default: "" },
     method: { type: String, enum: ["Wallet", "Bank", "Card"], required: true },
+    originalAmount: { type: Number }, 
+    roundUpAmount: { type: Number },
   },
   {
     timestamps: true,

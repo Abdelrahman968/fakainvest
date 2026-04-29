@@ -1,7 +1,11 @@
 import { Schema, model, models, Document, Model, Types } from "mongoose";
 
-
-export type GoalCategory = "Travel" | "Apartment" | "Device" | "Education" | "Other";
+export type GoalCategory =
+  | "Travel"
+  | "Apartment"
+  | "Device"
+  | "Education"
+  | "Other";
 
 export interface IGoal extends Document {
   userId: Types.ObjectId;
@@ -9,6 +13,7 @@ export interface IGoal extends Document {
   emoji: string;
   category: GoalCategory;
   targetAmount: number;
+  currentAmount: number;
   savedAmount: number;
   deadline?: Date | null;
   color: string;
@@ -18,20 +23,30 @@ export interface IGoal extends Document {
 
 const goalSchema = new Schema<IGoal>(
   {
-    userId:       { type: Schema.Types.ObjectId, ref: "User", required: true, index: true },
-    title:        { type: String, required: true, trim: true, maxlength: 80 },
-    emoji:        { type: String, default: "🎯" },
-    category:     { type: String, enum: ["Travel","Apartment","Device","Education","Other"], default: "Other" },
+    userId: {
+      type: Schema.Types.ObjectId,
+      ref: "User",
+      required: true,
+      index: true,
+    },
+    title: { type: String, required: true, trim: true, maxlength: 80 },
+    emoji: { type: String, default: "🎯" },
+    category: {
+      type: String,
+      enum: ["Travel", "Apartment", "Device", "Education", "Other"],
+      default: "Other",
+    },
     targetAmount: { type: Number, required: true, min: 1 },
-    savedAmount:  { type: Number, default: 0, min: 0 },
-    deadline:     { type: Date, default: null },
-    color:        { type: String, default: "#6366f1" },
+    currentAmount: { type: Number, default: 0, min: 0 },
+    savedAmount: { type: Number, default: 0, min: 0 },
+    deadline: { type: Date, default: null },
+    color: { type: String, default: "#6366f1" },
   },
-  { timestamps: true }
+  { timestamps: true },
 );
 
-export const Goal: Model<IGoal> = models?.Goal as Model<IGoal> || model<IGoal>("Goal", goalSchema);
-
+export const Goal: Model<IGoal> =
+  (models?.Goal as Model<IGoal>) || model<IGoal>("Goal", goalSchema);
 
 export interface IGoalContribution extends Document {
   goalId: Types.ObjectId;
@@ -44,16 +59,27 @@ export interface IGoalContribution extends Document {
 
 const goalContributionSchema = new Schema<IGoalContribution>(
   {
-    goalId: { type: Schema.Types.ObjectId, ref: "Goal", required: true, index: true },
-    userId: { type: Schema.Types.ObjectId, ref: "User", required: true, index: true },
+    goalId: {
+      type: Schema.Types.ObjectId,
+      ref: "Goal",
+      required: true,
+      index: true,
+    },
+    userId: {
+      type: Schema.Types.ObjectId,
+      ref: "User",
+      required: true,
+      index: true,
+    },
     amount: { type: Number, required: true, min: 0.01 },
-    note:   { type: String, trim: true, default: "" },
+    note: { type: String, trim: true, default: "" },
   },
-  { timestamps: true }
+  { timestamps: true },
 );
 
-export const GoalContribution: Model<IGoalContribution> = 
-  models?.GoalContribution as Model<IGoalContribution> || model<IGoalContribution>("GoalContribution", goalContributionSchema);
+export const GoalContribution: Model<IGoalContribution> =
+  (models?.GoalContribution as Model<IGoalContribution>) ||
+  model<IGoalContribution>("GoalContribution", goalContributionSchema);
 
 export type LeanGoal = {
   _id: Types.ObjectId;
@@ -62,6 +88,7 @@ export type LeanGoal = {
   emoji: string;
   category: GoalCategory;
   targetAmount: number;
+  currentAmount: number;
   savedAmount: number;
   deadline: Date | null;
   color: string;

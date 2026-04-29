@@ -12,9 +12,12 @@ export async function GET() {
   await connectDB();
 
   const settings = await UserSettings.findOne({ userId: session.sub }).lean();
-  
+
   return NextResponse.json({
-    roundUpMode: settings?.roundUpMode || "Medium",
+    roundUpMode: settings?.roundUpMode || "Eco",
+    roundUpEnabled: settings?.roundUpEnabled ?? true,
+    customRoundUpAmount: settings?.customRoundUpAmount ?? 10,
+    roundUpAutoInvestThreshold: settings?.roundUpAutoInvestThreshold ?? 20,
   });
 }
 
@@ -25,15 +28,34 @@ export async function PUT(request: Request) {
   }
 
   const body = await request.json();
-  const { roundUpMode } = body;
+
+  const {
+    roundUpMode,
+    roundUpEnabled,
+    customRoundUpAmount,
+    roundUpAutoInvestThreshold,
+  } = body;
 
   await connectDB();
 
+  const updateData: any = { updatedAt: new Date() };
+  if (roundUpMode !== undefined) updateData.roundUpMode = roundUpMode;
+  if (roundUpEnabled !== undefined) updateData.roundUpEnabled = roundUpEnabled;
+  if (customRoundUpAmount !== undefined)
+    updateData.customRoundUpAmount = customRoundUpAmount;
+  if (roundUpAutoInvestThreshold !== undefined)
+    updateData.roundUpAutoInvestThreshold = roundUpAutoInvestThreshold;
+
   const settings = await UserSettings.findOneAndUpdate(
     { userId: session.sub },
-    { roundUpMode, updatedAt: new Date() },
-    { upsert: true, new: true }
+    updateData,
+    { upsert: true, new: true },
   ).lean();
 
-  return NextResponse.json({ roundUpMode: settings?.roundUpMode });
+  return NextResponse.json({
+    roundUpMode: settings?.roundUpMode || "Eco",
+    roundUpEnabled: settings?.roundUpEnabled ?? true,
+    customRoundUpAmount: settings?.customRoundUpAmount ?? 10,
+    roundUpAutoInvestThreshold: settings?.roundUpAutoInvestThreshold ?? 20,
+  });
 }

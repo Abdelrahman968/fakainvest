@@ -3,8 +3,16 @@ import { routing } from "@/i18n/routing";
 import { NextRequest, NextResponse } from "next/server";
 import { UAParser } from "ua-parser-js";
 
+const TOKEN_COOKIE = "faka_token";
+
+const PUBLIC_PATHS = ["/onboarding", "/auth"];
+const ROOT_PATH = "/";
+
 export default async function middleware(request: NextRequest) {
   const { pathname } = request.nextUrl;
+
+  const authToken = request.cookies.get(TOKEN_COOKIE)?.value;
+  const isAuthenticated = !!authToken;
 
   const parser = new UAParser(request.headers.get("user-agent") || "");
   const result = parser.getResult();
@@ -29,7 +37,6 @@ export default async function middleware(request: NextRequest) {
     request.cookies.get("onboarding-completed")?.value === "true";
 
   const pathSegments = pathname.split("/").filter(Boolean);
-
   const validLocales = ["en", "ar"] as const;
   type ValidLocale = (typeof validLocales)[number];
 
@@ -38,22 +45,48 @@ export default async function middleware(request: NextRequest) {
     : null;
   const route = locale ? pathSegments[1] : pathSegments[0];
 
+  const pathWithoutLocale = locale
+    ? pathname.replace(`/${locale}`, "") || "/"
+    : pathname;
+
   if (route === "complete-onboarding") {
     const redirectResponse = NextResponse.redirect(
       new URL(locale ? `/${locale}/dashboard` : "/dashboard", request.url),
     );
     redirectResponse.cookies.set("onboarding-completed", "true", {
       path: "/",
-      maxAge: 60 * 60 * 24 * 365, // 1 year
+      maxAge: 60 * 60 * 24 * 365,
       sameSite: "lax",
     });
     return redirectResponse;
   }
 
+  if (isAuthenticated && (route === "auth" || pathWithoutLocale === "/auth")) {
+    const redirectPath = locale ? `/${locale}/dashboard` : "/dashboard";
+    return NextResponse.redirect(new URL(redirectPath, request.url));
+  }
+
+  const isPublicPath =
+    pathWithoutLocale === ROOT_PATH ||
+    PUBLIC_PATHS.some(
+      (p) => pathWithoutLocale === p || pathWithoutLocale.startsWith(`${p}/`),
+    );
+
+  if (!isAuthenticated && !isPublicPath) {
+    const callbackUrl = encodeURIComponent(pathname);
+    const loginPath = locale ? `/${locale}/auth` : "/auth";
+    const redirectUrl = `${loginPath}?callbackUrl=${callbackUrl}`;
+    return NextResponse.redirect(new URL(redirectUrl, request.url));
+  }
+
   const isRootPath = !locale ? pathname === "/" : pathname === `/${locale}`;
 
   if (isRootPath) {
-    if (!hasSeenOnboarding && isMobile) {
+    if (isAuthenticated) {
+      const dashboardPath = locale ? `/${locale}/dashboard` : "/dashboard";
+      return NextResponse.redirect(new URL(dashboardPath, request.url));
+    }
+    if (!hasSeenOnboarding && isMobile && !isAuthenticated) {
       const onboardingPath = locale ? `/${locale}/onboarding` : "/onboarding";
       return NextResponse.redirect(new URL(onboardingPath, request.url));
     }
@@ -61,6 +94,11 @@ export default async function middleware(request: NextRequest) {
   }
 
   if (route === "onboarding") {
+    if (isAuthenticated) {
+      const homePath = locale ? `/${locale}/dashboard` : "/dashboard";
+      return NextResponse.redirect(new URL(homePath, request.url));
+    }
+
     if (hasSeenOnboarding) {
       const homePath = locale ? `/${locale}/dashboard` : "/dashboard";
       return NextResponse.redirect(new URL(homePath, request.url));

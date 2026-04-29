@@ -387,6 +387,7 @@
     "rewards": "المكافآت",
     "referral": "الإحالة",
     "profile": "الملف الشخصي",
+    "contacts": "جهات الاتصال",
     "more": "المزيد"
   },
   "AppSidebar": {
@@ -520,11 +521,11 @@
     "title": "جهات الاتصال",
     "contactsInfo": "{count} جهة اتصال · {favorites} مفضلة",
     "sync": "مزامنة",
-    "searchPlaceholder": "ابحث عن مستخدمين بالاسم أو البريد الإلكتروني...",
+    "searchPlaceholder": "ابحث بالاسم أو البريد الالكتروني...",
     "searchResults": "نتائج البحث",
     "noUsersFound": "لم يتم العثور على مستخدمين",
     "add": "إضافة",
-    "allContacts": "جميع جهات الاتصال",
+    "allContacts": "الكل",
     "favorites": "المفضلة",
     "noContacts": "لا توجد جهات اتصال",
     "noContactsHint": "ابحث عن المستخدمين أعلاه لإضافتهم، أو أرسل أموالاً لشخص ما أولاً",
@@ -658,5 +659,168 @@
     "received": "مستلم",
     "topup": "شحن",
     "card": "بطاقة"
+  },
+  "Transactions": {
+    "title": "المعاملات",
+    "subtitle": "كل حركة مالية",
+    "exportCsv": "تصدير CSV",
+    "moneyIn": "فلوس داخله",
+    "moneyOut": "فلوس خارجه",
+    "net": "صافي",
+    "searchPlaceholder": "بحث عن التاجر أو الملاحظة…",
+    "noTransactions": "لا توجد معاملات مطابقة لعمليات البحث."
+  },
+  "WalletPageVisa": {
+    "activeRoundUps": "مفعل",
+    "virtual": "بطاقة إفتراضية",
+    "cardHolder": "حامل البطاقة",
+    "expires": "تنتهي في",
+    "cardFrozen": "البطاقة مجمدة",
+    "yourMoneyVirtualCard": "أموالك وبطاقتك الإفتراضية",
+    "wallet": "المحفظة",
+    "enterValidAmount": "أدخل مبلغ صحيح",
+    "pickRecipient": "اختر المستلم",
+    "sentSuccess": "تم إرسال {amount} جنيه إلى {name}",
+    "requestSent": "تم طلب {amount} جنيه من {name}",
+    "requestFailed": "فشل طلب الدفع",
+    "paymentSent": "تم إرسال الدفع",
+    "failedToAccept": "فشل قبول الطلب",
+    "requestRejected": "تم رفض الطلب",
+    "failedToReject": "فشل رفض الطلب",
+    "depositedSuccess": "تم إيداع {amount} جنيه",
+    "transactionDeclined": "تم رفض المعاملة",
+    "cardCharged": "تم خصم {amount} جنيه من البطاقة",
+    "cardUnfrozen": "تم إلغاء تجميد البطاقة",
+    "limits": "الحدود",
+    "spentToday": "أنفقت اليوم",
+    "dailyLimit": "الحد اليومي",
+    "spentThisMonth": "أنفقت هذا الشهر",
+    "monthlyLimit": "الحد الشهري",
+    "perTransaction": "لكل معاملة",
+    "onlinePayments": "المدفوعات الإلكترونية",
+    "contactless": "الدفع بدون تلامس",
+    "international": "المدفوعات الدولية",
+    "atm": "سحب ATM",
+    "simulatePurchase": "محاكاة شراء",
+    "send": "إرسال",
+    "request": "طلب",
+    "deposit": "إيداع",
+    "roundUpMode": "وضع التقريب",
+    "roundUpDescription": "تقريب المشتريات لتوفير الفارق",
+    "customAmount": "المبلغ المخصص",
+    "applyCustom": "تطبيق المبلغ المخصص",
+    "close": "إغلاق",
+    "cardDetails": "تفاصيل البطاقة",
+    "hideDetails": "إخفاء التفاصيل",
+    "showDetails": "إظهار التفاصيل",
+    "roundUpDisabled": "التقريب معطل",
+    "roundUpEco": "تقريب لأقرب 5 جنيه",
+    "roundUpBoost": "تقريب لأقرب 10 جنيه",
+    "roundUpFixed20": "إضافة 20 جنيه ثابت لكل معاملة",
+    "roundUpCustom": "مبلغ ثابت قد يصل الي 100 ج أنت تحدده في لوحة التحكم",
+    "invalidAmount": "مبلغ غير صالح",
+    "minCustomAmount": "الحد الأدنى للمبلغ المخصص هو 5 جنيه",
+    "maxCustomAmount": "الحد الأقصى للمبلغ المخصص هو 100 جنيه",
+    "egp": "جنية",
+    "customModeActivated": "تم تفعيل الوضع المخصص",
+    "addingAmount": "إضافة {amount} جنيه لكل عملية شراء",
+    "customRoundUpAmount": "مبلغ التقريب المخصص",
+    "amountPerTransaction": "المبلغ لكل معاملة",
+    "minMaxCustomAmount": "الحد الأدنى: 5 جنيه | الحد الأقصى: 100 جنيه",
+    "monthlyImpact": "الأثر الشهري (30 معاملة)",
+    "monthlyImpactDescription": "سيتم توفير هذا المبلغ تلقائياً من مشترياتك",
+    "cancel": "إلغاء",
+    "applyCustomAmount": "تطبيق المبلغ المخصص",
+    "roundUpSettings": "إعدادات التقريب",
+    "roundUpOff": "التقريب معطل",
+    "enableRoundUp": "تفعيل التقريب",
+    "selectRoundUpMode": "اختر وضع التقريب",
+    "roundUpDisabledMessage": "التقريب معطل حالياً",
+    "enableToStartSaving": "قم بتفعيل المفتاح أعلاه لبدء التوفير التلقائي",
+    "roundUpEnabled": "تم تفعيل التقريب",
+    "roundUpTurnedOn": "تم تفعيل التقريب. سيتم الآن تقريب مشترياتك تلقائياً.",
+    "roundUpTurnedOff": "تم إيقاف التقريب. لن يتم توفير المبالغ تلقائياً بعد الآن.",
+    "DashboardPage": {
+      "roundUpMode": "وضع التقريب",
+      "roundUpDescription": "تقريب المشتريات لتوفير الفارق",
+      "None": "إيقاف",
+      "Eco": "اقتصادي",
+      "Boost": "تعزيز",
+      "Fixed20": "ثابت 20",
+      "Custom": "مخصص",
+      "saved": "تم التوفير"
+    }
+  },
+  "Chat": {
+    "title": "فكا-بوت",
+    "online": "متصل · مستشارك المالي",
+    "clearChat": "مسح المحادثة",
+    "placeholder": "اكتب سؤالك هنا...",
+    "welcomeTitle": "👋 أهلاً بيك في فكا انفيست!",
+    "welcomeMessage": "أنا فكا-بوت، مستشارك المالي الذكي. أقدر أشوف رصيدك، معاملاتك، وأهدافك وأساعدك تحقق أهدافك المالية الحلال 🚀",
+    "suggestionsTitle": "اقتراحات لتبدأ بها"
+  },
+  "ProfilePage": {
+    "header": {
+      "subtitle": "الملف الشخصي",
+      "title": "الحساب"
+    },
+    "common": {
+      "addName": "أضف اسمك"
+    },
+    "stats": {
+      "daysActive": "أيام النشاط",
+      "streak": "التسلسل",
+      "score": "النتيجة"
+    },
+    "items": {
+      "linkedAccounts": "الحسابات المرتبطة",
+      "linkedAccountsValue": "فوري · CIB",
+      "notifications": "الإشعارات",
+      "on": "مفعل",
+      "off": "معطل",
+      "security": "الأمان",
+      "securityValue": "بصمة الوجه",
+      "help": "المساعدة والدعم"
+    },
+    "buttons": {
+      "edit": "تعديل",
+      "saveChanges": "حفظ التغييرات",
+      "signOut": "تسجيل الخروج"
+    },
+    "editProfile": {
+      "title": "تعديل الملف الشخصي",
+      "displayName": "الاسم الظاهر",
+      "email": "البريد الإلكتروني",
+      "emailNote": "ملاحظة: سيؤدي تغيير بريدك الإلكتروني إلى تسجيل خروجك وتسجيل الدخول مرة أخرى",
+      "phone": "الهاتف",
+      "phonePlaceholder": "+20 100 000 0000"
+    },
+    "avatarPicker": {
+      "title": "اختر الصورة الرمزية"
+    },
+    "validation": {
+      "nameLength": "الاسم يجب أن يكون بين 2 و 40 حرفاً",
+      "nameChars": "الاسم يحتوي على أحرف غير صالحة",
+      "email": "أدخل بريداً إلكترونياً صالحاً",
+      "phone": "أدخل رقم هاتف صالح"
+    },
+    "toasts": {
+      "emailUpdated": "تم تحديث البريد الإلكتروني بنجاح!",
+      "emailChangedDescription": "تم تغيير بريدك الإلكتروني إلى {email}",
+      "linkingComingSoon": "ربط البنوك قريباً",
+      "securityComingSoon": "إعدادات الأمان قريباً",
+      "supportEmail": "الدعم: help@fakainvest.app",
+      "avatarUpdated": "تم تحديث الصورة الرمزية",
+      "profileUpdated": "تم تحديث الملف الشخصي بنجاح",
+      "emailChanged": "تم تغيير البريد الإلكتروني",
+      "pleaseSignInAgain": "يرجى تسجيل الدخول مرة أخرى باستخدام البريد الإلكتروني الجديد"
+    },
+    "aria": {
+      "changeAvatar": "تغيير الصورة الرمزية"
+    },
+    "footer": {
+      "version": "FakaInvest الإصدار 0.1 · صنع بحب لسلام هاك"
+    }
   }
 }

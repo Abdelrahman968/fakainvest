@@ -1,20 +1,19 @@
-"use client";
-
 import { useEffect, useState, useCallback } from "react";
 import { useAuth } from "@/contexts/AuthContext";
+import { toast } from "sonner";
 
 export type Profile = {
   id: string;
   display_name: string;
   email: string;
   phone: string;
-  avatar_emoji: string;
+  avatar_icon: string;
   notifications_enabled: boolean;
   created_at?: string;
 };
 
 export const useProfile = () => {
-  const { user } = useAuth();
+  const { user, signOut, refreshUser } = useAuth();
   const [profile, setProfile] = useState<Profile | null>(null);
   const [loading, setLoading] = useState(true);
 
@@ -29,17 +28,17 @@ export const useProfile = () => {
 
     try {
       const res = await fetch("/api/profile");
+      const data = await res.json();
 
-      if (res.ok) {
-        const data = await res.json();
+      if (res.ok && data.profile) {
         setProfile(data.profile);
       } else {
         setProfile({
           id: user.id,
-          display_name: user.displayName || user.name || user.email,
+          display_name: user.displayName || user.email,
           email: user.email,
           phone: user.phone || "",
-          avatar_emoji: user.avatarEmoji || "🦋",
+          avatar_icon: user.avatarEmoji || "🦋",
           notifications_enabled: user.notificationsEnabled ?? true,
         });
       }
@@ -47,10 +46,10 @@ export const useProfile = () => {
       console.error("[useProfile] Error fetching:", err);
       setProfile({
         id: user.id,
-        display_name: user.displayName || user.name || user.email,
+        display_name: user.displayName || user.email,
         email: user.email,
         phone: user.phone || "",
-        avatar_emoji: user.avatarEmoji || "🦋",
+        avatar_icon: user.avatarEmoji || "🦋",
         notifications_enabled: user.notificationsEnabled ?? true,
       });
     } finally {
@@ -60,26 +59,42 @@ export const useProfile = () => {
 
   useEffect(() => {
     if (!user) return;
-
-    const timeoutId = setTimeout(() => {
-      refresh();
-    }, 0);
-
-    return () => clearTimeout(timeoutId);
+    refresh();
   }, [user, refresh]);
 
   const update = useCallback(
     async (patch: Partial<Omit<Profile, "id">>) => {
       if (!user) return { ok: false, error: "Not signed in" };
+
+      const oldEmail = profile?.email;
+      const emailChanged = patch.email && patch.email !== oldEmail;
+
       try {
         const res = await fetch("/api/profile", {
           method: "PUT",
           headers: { "Content-Type": "application/json" },
           body: JSON.stringify(patch),
         });
+
         const data = await res.json();
-        if (!res.ok) return { ok: false, error: data.error || "Update failed" };
+
+        if (!res.ok) {
+          return { ok: false, error: data.error || "Update failed" };
+        }
+
         setProfile(data.profile);
+
+        if (emailChanged && data.profile.email) {
+          await refreshUser();
+
+          toast.success("Email updated successfully!", {
+            description: `Your email has been changed to ${data.profile.email}`,
+            duration: 5000,
+          });
+        } else {
+          toast.success("Profile updated successfully");
+        }
+
         return { ok: true };
       } catch (err) {
         return {
@@ -88,7 +103,7 @@ export const useProfile = () => {
         };
       }
     },
-    [user],
+    [user, profile?.email, refreshUser],
   );
 
   return { profile, loading, refresh, update };

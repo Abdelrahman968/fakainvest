@@ -13,6 +13,7 @@ export { Referral, ReferralSignup } from "./Referral";
 export { ChatMessage } from "./ChatMessage";
 export { Holding } from "./Holding";
 export { PaymentRequest } from "./PaymentRequest";
+export { UserSettings } from "./UserSettings";
 
 export type { IUser } from "./User";
 export type { IProfile } from "./Profile";

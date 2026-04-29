@@ -2,6 +2,7 @@
 import { useState, useEffect } from "react";
 import { useWallet, type Transfer } from "@/hooks/useWallet";
 import { useProfile } from "@/hooks/useProfile";
+import { useUserSettings } from "@/hooks/useUserSettings";
 import { CardLimitsSheet } from "@/components/CardLimitsSheet";
 import { toast } from "sonner";
 import { useTranslations } from "next-intl";
@@ -32,6 +33,7 @@ const Wallet = () => {
     refresh,
   } = useWallet();
   const { profile } = useProfile();
+  const { settings, updateSettings } = useUserSettings();
 
   const [showDetails, setShowDetails] = useState(false);
   const [sendOpen, setSendOpen] = useState(false);
@@ -335,6 +337,16 @@ const Wallet = () => {
             cardCvv={wallet.card_cvv}
             frozen={wallet.frozen}
             showDetails={showDetails}
+            roundUpEnabled={settings?.roundUpEnabled ?? true}
+            roundUpMode={settings?.roundUpMode || "Eco"}
+            onRoundUpSettingsChange={async (enabled, mode) => {
+              console.log("📝 Wallet - Updating settings:", { enabled, mode });
+              await updateSettings({
+                roundUpEnabled: enabled,
+                roundUpMode: mode,
+              });
+              await refresh();
+            }}
           />
 
           <CardControls

@@ -166,7 +166,7 @@ export async function PATCH(request: Request) {
       mongooseSession,
     );
     const requesterWallet = await Wallet.findOne({
-      userId: paymentRequest.requesterId,
+      userId: paymentRequest.requesterId.toString(),
     }).session(mongooseSession);
 
     if (!senderWallet || !requesterWallet) {

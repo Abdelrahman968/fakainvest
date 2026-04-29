@@ -94,14 +94,14 @@ export async function POST(request: Request) {
     }
 
     let recipientWallet = await Wallet.findOne({
-      userId: recipientUser._id,
+      userId: recipientUser._id.toString(),
     }).session(mongooseSession);
 
     if (!recipientWallet) {
       const [newWallet] = await Wallet.create(
         [
           {
-            userId: recipientUser._id,
+            userId: recipientUser._id.toString(),
             balance: 0,
             spentToday: 0,
             spentThisMonth: 0,

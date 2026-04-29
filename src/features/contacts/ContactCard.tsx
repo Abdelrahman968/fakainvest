@@ -30,7 +30,7 @@ export default function ContactCard({
   t,
 }: ContactCardProps) {
   return (
-    <div className="flex items-center justify-between rounded-2xl border border-border/40 bg-card/40 p-4 transition-all hover:bg-card/60">
+    <div className="flex flex-col sm:flex-row items-start sm:items-center justify-between gap-2 rounded-2xl border border-border/40 bg-card/40 p-4 transition-all hover:bg-card/60">
       <Link
         href={`/pay/${contact.id}`}
         className="flex items-center gap-3 flex-1"
@@ -56,7 +56,7 @@ export default function ContactCard({
           )}
         </div>
       </Link>
-      <div className="flex gap-1">
+      <div className="sm:mt-0 mt-2 flex gap-1 self-end">
         <Button
           size="sm"
           variant="ghost"
