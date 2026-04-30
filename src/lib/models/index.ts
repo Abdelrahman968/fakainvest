@@ -14,6 +14,9 @@ export { ChatMessage } from "./ChatMessage";
 export { Holding } from "./Holding";
 export { PaymentRequest } from "./PaymentRequest";
 export { UserSettings } from "./UserSettings";
+export { MarketRate } from "./MarketRate";
+export { BankCertificate } from "./BankCertificate";
+export { CashbackOffer } from "./CashbackOffer";
 
 export type { IUser } from "./User";
 export type { IProfile } from "./Profile";

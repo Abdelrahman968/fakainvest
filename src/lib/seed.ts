@@ -13,6 +13,9 @@ import {
   Notification,
   Challenge,
   ChallengeProgress,
+  MarketRate,
+  BankCertificate,
+  CashbackOffer,
 } from "./models";
 
 export async function seedNewUser(
@@ -223,4 +226,189 @@ export async function seedNewUser(
       progress: 30,
     });
   }
+
+  // ── Seed Market Data (Global, runs once) ─────────────────────────────────
+  await seedMarketData();
+}
+
+// ── Seed Market Data (Global market data, not per user) ─────────────────────
+export async function seedMarketData() {
+  console.log("🌱 Checking market data...");
+
+  // Check if market data already exists
+  const existingRates = await MarketRate.countDocuments();
+  const existingCerts = await BankCertificate.countDocuments();
+  const existingOffers = await CashbackOffer.countDocuments();
+
+  if (existingRates > 0 && existingCerts > 0 && existingOffers > 0) {
+    console.log("Market data already exists. Skipping...");
+    return;
+  }
+
+  // ── Market Rates ──────────────────────────────────────────────────────────
+  if (existingRates === 0) {
+    const rates = [
+      {
+        name: "Gold (24K)",
+        value: 4287,
+        unit: "EGP/g",
+        change: 1.8,
+        icon: "🪙",
+        color: "45 90% 60%",
+      },
+      {
+        name: "EGX30 Index",
+        value: 31420,
+        unit: "pts",
+        change: 0.94,
+        icon: "📈",
+        color: "162 72% 45%",
+      },
+      {
+        name: "USD / EGP",
+        value: 50.85,
+        unit: "EGP",
+        change: -0.21,
+        icon: "💵",
+        color: "199 89% 60%",
+      },
+      {
+        name: "CBE Interest Rate",
+        value: 27.25,
+        unit: "%",
+        change: 0,
+        icon: "🏛️",
+        color: "210 55% 47%",
+      },
+    ];
+
+    await MarketRate.insertMany(rates);
+    console.log(`Added ${rates.length} market rates`);
+  }
+
+  // ── Bank Certificates ─────────────────────────────────────────────────────
+  if (existingCerts === 0) {
+    const certificates = [
+      {
+        bank: "NBE",
+        name: "Platinum Variable",
+        rate: 23.0,
+        term: "3 years",
+        min: 1000,
+        isBest: true,
+      },
+      {
+        bank: "Banque Misr",
+        name: "Ibn Misr Al-Thalath",
+        rate: 22.5,
+        term: "3 years",
+        min: 1000,
+        isBest: false,
+      },
+      {
+        bank: "CIB",
+        name: "Prime Saver",
+        rate: 21.0,
+        term: "5 years",
+        min: 5000,
+        isBest: false,
+      },
+      {
+        bank: "QNB",
+        name: "Future Plus",
+        rate: 20.5,
+        term: "3 years",
+        min: 1000,
+        isBest: false,
+      },
+      {
+        bank: "AAIB",
+        name: "Smart Plus",
+        rate: 20.0,
+        term: "1 year",
+        min: 1000,
+        isBest: false,
+      },
+    ];
+
+    await BankCertificate.insertMany(certificates);
+    console.log(`Added ${certificates.length} bank certificates`);
+  }
+
+  // ── Cashback Offers ───────────────────────────────────────────────────────
+  if (existingOffers === 0) {
+    const offers = [
+      {
+        brand: "Talabat",
+        category: "Food",
+        cashback: "5%",
+        cashbackValue: 5,
+        emoji: "🍔",
+        color: "0 75% 55%",
+        startDate: new Date(),
+        endDate: new Date(Date.now() + 30 * 24 * 60 * 60 * 1000),
+        isActive: true,
+      },
+      {
+        brand: "Uber",
+        category: "Transport",
+        cashback: "3%",
+        cashbackValue: 3,
+        emoji: "🚗",
+        color: "0 0% 95%",
+        startDate: new Date(),
+        endDate: new Date(Date.now() + 30 * 24 * 60 * 60 * 1000),
+        isActive: true,
+      },
+      {
+        brand: "Carrefour",
+        category: "Food",
+        cashback: "4%",
+        cashbackValue: 4,
+        emoji: "🛒",
+        color: "210 90% 50%",
+        startDate: new Date(),
+        endDate: new Date(Date.now() + 30 * 24 * 60 * 60 * 1000),
+        isActive: true,
+      },
+      {
+        brand: "Vodafone",
+        category: "Bills",
+        cashback: "2%",
+        cashbackValue: 2,
+        emoji: "📱",
+        color: "0 80% 50%",
+        startDate: new Date(),
+        endDate: new Date(Date.now() + 30 * 24 * 60 * 60 * 1000),
+        isActive: true,
+      },
+      {
+        brand: "Cilantro",
+        category: "Coffee",
+        cashback: "8%",
+        cashbackValue: 8,
+        emoji: "☕",
+        color: "30 60% 35%",
+        startDate: new Date(),
+        endDate: new Date(Date.now() + 30 * 24 * 60 * 60 * 1000),
+        isActive: true,
+      },
+      {
+        brand: "Noon",
+        category: "Shopping",
+        cashback: "6%",
+        cashbackValue: 6,
+        emoji: "🛍️",
+        color: "45 95% 55%",
+        startDate: new Date(),
+        endDate: new Date(Date.now() + 30 * 24 * 60 * 60 * 1000),
+        isActive: true,
+      },
+    ];
+
+    await CashbackOffer.insertMany(offers);
+    console.log(`Added ${offers.length} cashback offers`);
+  }
+
+  console.log("Market data seeding completed!");
 }

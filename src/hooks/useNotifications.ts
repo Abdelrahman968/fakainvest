@@ -32,10 +32,7 @@ export const useNotifications = () => {
       const res = await fetch("/api/notifications");
       if (res.ok) {
         const data = await res.json();
-        console.log(
-          "🔔 [useNotifications] Notifications received:",
-          data.notifications?.length,
-        );
+
         setItems(data.notifications || []);
       } else {
         setItems([]);

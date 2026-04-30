@@ -64,9 +64,7 @@ export function AuthProvider({ children }: { children: ReactNode }) {
 
   const fetchCurrentUser = useCallback(async () => {
     try {
-      console.log("🔐 [Auth] Fetching user from /api/auth/me");
       const res = await fetch("/api/auth/me");
-      console.log("🔐 [Auth] Response status:", res.status);
 
       if (res.ok) {
         const data = await res.json();
@@ -111,7 +109,7 @@ export function AuthProvider({ children }: { children: ReactNode }) {
         setUser(null);
       }
     } catch (error) {
-      console.error("🔐 [Auth] Error fetching user:", error);
+      console.error("[Auth] Error fetching user:", error);
       setUser(null);
     } finally {
       setLoading(false);
