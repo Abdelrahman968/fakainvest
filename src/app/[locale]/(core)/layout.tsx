@@ -98,7 +98,7 @@ export default function AppLayout({ children }: { children: ReactNode }) {
           </div>
         </header>
 
-        <main className="flex-1 px-4 pt-5 pb-10 sm:px-6 md:px-8 lg:px-10">
+        <main className="flex-1 px-4 pt-5 pb-24 sm:px-6 md:px-8 lg:px-10">
           <div className="mx-auto w-full max-w-5xl">{children}</div>
         </main>
       </SidebarInset>

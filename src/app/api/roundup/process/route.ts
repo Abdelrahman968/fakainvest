@@ -96,7 +96,7 @@ export async function POST(request: Request) {
         userId: session.sub,
       }).session(mongooseSession);
       if (goal) {
-        goal.currentAmount = (goal.currentAmount || 0) + totalPendingAmount;
+        goal.savedAmount = (goal.savedAmount || 0) + totalPendingAmount;
         await goal.save({ session: mongooseSession });
       }
     }

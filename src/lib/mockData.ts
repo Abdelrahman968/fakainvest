@@ -72,7 +72,7 @@ export const aiInitialMessages = [
   {
     id: "m1",
     role: "assistant" as const,
-    text: "Hi Yara 👋 I'm Gemini, your personal finance advisor. I see you've rounded up EGP 38.25 this week — nice momentum! What would you like to explore today?",
+    text: "Hi Yara 👋 I'm AI, your personal finance advisor. I see you've rounded up EGP 38.25 this week — nice momentum! What would you like to explore today?",
     time: "9:14 AM",
   },
 ];
@@ -146,7 +146,7 @@ export const ruleTemplates = [
   { trigger: "Every coffee", action: "+10 EGP to Gold", emoji: "☕→🪙" },
   { trigger: "Every Uber", action: "+5 EGP to Stocks", emoji: "🚗→📈" },
   { trigger: "Every payday", action: "Auto-save 10%", emoji: "💰→🏦" },
-  { trigger: "Spending over 1k", action: "Notify Gemini", emoji: "💸→🔔" },
+  { trigger: "Spending over 1k", action: "Notify AI", emoji: "💸→🔔" },
 ];
 
 export const monthlyReport = {

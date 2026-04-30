@@ -6,7 +6,7 @@ import mongoose from "mongoose";
 
 export async function GET(
   request: Request,
-  { params }: { params: Promise<{ id: string }> }
+  { params }: { params: Promise<{ id: string }> },
 ) {
   const session = await getSession();
   if (!session?.sub) {
@@ -38,7 +38,10 @@ export async function GET(
   if (goal.deadline) {
     const today = new Date();
     const deadline = new Date(goal.deadline);
-    const daysLeft = Math.max(1, Math.ceil((deadline.getTime() - today.getTime()) / (1000 * 60 * 60 * 24)));
+    const daysLeft = Math.max(
+      1,
+      Math.ceil((deadline.getTime() - today.getTime()) / (1000 * 60 * 60 * 24)),
+    );
     dailyRequired = Math.ceil(remaining / daysLeft);
   }
 
@@ -51,7 +54,9 @@ export async function GET(
       category: goal.category,
       target: goal.targetAmount,
       saved: goal.savedAmount,
-      deadline: goal.deadline ? goal.deadline.toISOString().split('T')[0] : null,
+      deadline: goal.deadline
+        ? goal.deadline.toISOString().split("T")[0]
+        : null,
       color: goal.color,
       created_at: goal.createdAt.toISOString(),
       updated_at: goal.updatedAt.toISOString(),
@@ -64,7 +69,7 @@ export async function GET(
 
 export async function PATCH(
   request: Request,
-  { params }: { params: Promise<{ id: string }> }
+  { params }: { params: Promise<{ id: string }> },
 ) {
   const session = await getSession();
   if (!session?.sub) {
@@ -90,29 +95,73 @@ export async function PATCH(
     return NextResponse.json({ error: "Goal not found" }, { status: 404 });
   }
 
+  if (targetAmount !== undefined) {
+    if (targetAmount <= 0) {
+      return NextResponse.json(
+        {
+          error: "Target amount must be greater than 0",
+        },
+        { status: 400 },
+      );
+    }
+
+    if (targetAmount > 10000000) {
+      return NextResponse.json(
+        {
+          error: "Target amount cannot exceed 10,000,000 EGP",
+        },
+        { status: 400 },
+      );
+    }
+
+    if (targetAmount < (goal.savedAmount || 0)) {
+      return NextResponse.json(
+        {
+          error: `Target amount cannot be less than current saved amount (${goal.savedAmount} EGP)`,
+        },
+        { status: 400 },
+      );
+    }
+
+    goal.targetAmount = targetAmount;
+  }
+
   if (title !== undefined) goal.title = title.trim();
   if (emoji !== undefined) goal.emoji = emoji;
   if (category !== undefined) goal.category = category;
-  if (targetAmount !== undefined) {
-    if (targetAmount <= 0) {
-      return NextResponse.json({ error: "Target amount must be greater than 0" }, { status: 400 });
+
+  if (deadline !== undefined) {
+    if (deadline) {
+      const deadlineDate = new Date(deadline);
+      if (isNaN(deadlineDate.getTime())) {
+        return NextResponse.json(
+          { error: "Invalid deadline date" },
+          { status: 400 },
+        );
+      }
+      goal.deadline = deadlineDate;
+    } else {
+      goal.deadline = null;
     }
-    goal.targetAmount = targetAmount;
   }
-  if (deadline !== undefined) goal.deadline = deadline ? new Date(deadline) : null;
+
   if (color !== undefined) goal.color = color;
 
   await goal.save();
 
   const savedAmount = goal.savedAmount || 0;
-  const progress = goal.targetAmount > 0 ? (savedAmount / goal.targetAmount) * 100 : 0;
+  const progress =
+    goal.targetAmount > 0 ? (savedAmount / goal.targetAmount) * 100 : 0;
   const remaining = Math.max(0, goal.targetAmount - savedAmount);
 
   let dailyRequired = null;
   if (goal.deadline) {
     const today = new Date();
     const deadline = new Date(goal.deadline);
-    const daysLeft = Math.max(1, Math.ceil((deadline.getTime() - today.getTime()) / (1000 * 60 * 60 * 24)));
+    const daysLeft = Math.max(
+      1,
+      Math.ceil((deadline.getTime() - today.getTime()) / (1000 * 60 * 60 * 24)),
+    );
     dailyRequired = Math.ceil(remaining / daysLeft);
   }
 
@@ -125,7 +174,9 @@ export async function PATCH(
       category: goal.category,
       target: goal.targetAmount,
       saved: goal.savedAmount,
-      deadline: goal.deadline ? goal.deadline.toISOString().split('T')[0] : null,
+      deadline: goal.deadline
+        ? goal.deadline.toISOString().split("T")[0]
+        : null,
       color: goal.color,
       created_at: goal.createdAt.toISOString(),
       updated_at: goal.updatedAt.toISOString(),
@@ -138,7 +189,7 @@ export async function PATCH(
 
 export async function DELETE(
   request: Request,
-  { params }: { params: Promise<{ id: string }> }
+  { params }: { params: Promise<{ id: string }> },
 ) {
   const session = await getSession();
   if (!session?.sub) {
@@ -161,10 +212,12 @@ export async function DELETE(
     return NextResponse.json({ error: "Goal not found" }, { status: 404 });
   }
 
+  // Delete all contributions first
   await GoalContribution.deleteMany({
     goalId: new mongoose.Types.ObjectId(id),
   });
-  
+
+  // Delete the goal
   await goal.deleteOne();
 
   return NextResponse.json({ success: true });

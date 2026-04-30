@@ -13,9 +13,8 @@ export interface IGoal extends Document {
   emoji: string;
   category: GoalCategory;
   targetAmount: number;
-  currentAmount: number;
   savedAmount: number;
-  deadline?: Date | null;
+  deadline: Date | null;
   color: string;
   createdAt: Date;
   updatedAt: Date;
@@ -37,13 +36,13 @@ const goalSchema = new Schema<IGoal>(
       default: "Other",
     },
     targetAmount: { type: Number, required: true, min: 1 },
-    currentAmount: { type: Number, default: 0, min: 0 },
     savedAmount: { type: Number, default: 0, min: 0 },
     deadline: { type: Date, default: null },
-    color: { type: String, default: "#6366f1" },
+    color: { type: String, default: "199 89% 60%" },
   },
   { timestamps: true },
 );
+
 
 export const Goal: Model<IGoal> =
   (models?.Goal as Model<IGoal>) || model<IGoal>("Goal", goalSchema);
@@ -88,7 +87,6 @@ export type LeanGoal = {
   emoji: string;
   category: GoalCategory;
   targetAmount: number;
-  currentAmount: number;
   savedAmount: number;
   deadline: Date | null;
   color: string;

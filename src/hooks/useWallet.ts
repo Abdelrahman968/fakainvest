@@ -60,9 +60,13 @@ export const useWallet = () => {
 
       if (walletRes.ok) {
         const walletData = await walletRes.json();
-        setWallet(walletData.wallet);
+        setWallet({
+          ...walletData.wallet,
+          total_balance:
+            walletData.wallet.total_balance ||
+            walletData.wallet.balance + (walletData.wallet.frozen_balance || 0),
+        });
       } else if (walletRes.status === 404) {
-        // Create wallet if doesn't exist
         const createRes = await fetch("/api/wallet", { method: "POST" });
         if (createRes.ok) {
           const newWallet = await createRes.json();

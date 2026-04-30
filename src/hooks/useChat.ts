@@ -3,12 +3,7 @@
 import { useCallback, useEffect, useState } from "react";
 import { useAuth } from "@/contexts/AuthContext";
 
-export type ChatMessage = {
-  id: string;
-  role: "user" | "assistant";
-  text: string;
-  created_at: string;
-};
+import { ChatMessage } from "@/types/chat";
 
 export const useChat = () => {
   const { user } = useAuth();
@@ -24,7 +19,6 @@ export const useChat = () => {
       if (res.ok) {
         const data = await res.json();
         setUserContext(data.user);
-        console.log("📊 User context loaded:", data.user);
       }
     } catch (error) {
       console.error("Error fetching user context:", error);
@@ -133,7 +127,6 @@ export const useChat = () => {
 
     setSending(true);
 
-    // إضافة رسالة المستخدم
     const userMessage: ChatMessage = {
       id: `user_${Date.now()}`,
       role: "user",

@@ -1,9 +1,12 @@
+"use client";
+
 import { useEffect, useState } from "react";
 import {
   Sheet,
   SheetContent,
   SheetHeader,
   SheetTitle,
+  SheetDescription,
 } from "@/components/ui/sheet";
 import { Slider } from "@/components/ui/slider";
 import { Switch } from "@/components/ui/switch";
@@ -18,6 +21,8 @@ import {
 } from "lucide-react";
 import { useWallet } from "@/hooks/useWallet";
 import { toast } from "sonner";
+import { useTranslations } from "next-intl";
+import * as VisuallyHidden from "@radix-ui/react-visually-hidden";
 
 const fmt = (n: number) =>
   Number(n).toLocaleString("en-EG", { maximumFractionDigits: 0 });
@@ -32,13 +37,16 @@ type LimitsDraft = {
   atm_enabled: boolean;
 };
 
+interface CardLimitsSheetProps {
+  open: boolean;
+  onOpenChange: (v: boolean) => void;
+}
+
 export const CardLimitsSheet = ({
   open,
   onOpenChange,
-}: {
-  open: boolean;
-  onOpenChange: (v: boolean) => void;
-}) => {
+}: CardLimitsSheetProps) => {
+  const t = useTranslations("CardLimits");
   const { wallet, updateLimits } = useWallet();
   const [draft, setDraft] = useState<LimitsDraft | null>(null);
   const [saving, setSaving] = useState(false);
@@ -60,35 +68,26 @@ export const CardLimitsSheet = ({
     }
   }, [open, wallet]);
 
-  if (!draft) {
-    return (
-      <Sheet open={open} onOpenChange={onOpenChange}>
-        <SheetContent side="bottom" className="rounded-t-3xl border-border/60">
-          <div className="flex h-32 items-center justify-center">
-            <Loader2 className="h-5 w-5 animate-spin text-muted-foreground" />
-          </div>
-        </SheetContent>
-      </Sheet>
-    );
-  }
-
   const set = <K extends keyof LimitsDraft>(k: K, v: LimitsDraft[K]) =>
     setDraft((d) => (d ? { ...d, [k]: v } : d));
 
   const save = async () => {
+    if (!draft) return;
+
     if (draft.per_transaction_limit > draft.daily_limit) {
-      toast.error("Per-transaction limit can't exceed daily limit");
+      toast.error(t("errors.perTransactionExceedsDaily"));
       return;
     }
     if (draft.daily_limit > draft.monthly_limit) {
-      toast.error("Daily limit can't exceed monthly limit");
+      toast.error(t("errors.dailyExceedsMonthly"));
       return;
     }
+
     setSaving(true);
     await updateLimits(draft);
     setSaving(false);
-    toast.success("Card limits updated", {
-      description: "Enforced on every card transaction",
+    toast.success(t("success.title"), {
+      description: t("success.description"),
     });
     onOpenChange(false);
   };
@@ -101,29 +100,44 @@ export const CardLimitsSheet = ({
   }[] = [
     {
       key: "online_enabled",
-      label: "Online payments",
-      desc: "E-commerce & subscriptions",
+      label: t("toggles.online.label"),
+      desc: t("toggles.online.desc"),
       icon: ShoppingBag,
     },
     {
       key: "contactless_enabled",
-      label: "Contactless / NFC",
-      desc: "Tap to pay",
+      label: t("toggles.contactless.label"),
+      desc: t("toggles.contactless.desc"),
       icon: Wifi,
     },
     {
       key: "international_enabled",
-      label: "International",
-      desc: "Outside Egypt",
+      label: t("toggles.international.label"),
+      desc: t("toggles.international.desc"),
       icon: Globe,
     },
     {
       key: "atm_enabled",
-      label: "ATM withdrawals",
-      desc: "Cash advances",
+      label: t("toggles.atm.label"),
+      desc: t("toggles.atm.desc"),
       icon: Landmark,
     },
   ];
+
+  if (!draft) {
+    return (
+      <Sheet open={open} onOpenChange={onOpenChange}>
+        <SheetContent side="bottom" className="rounded-t-3xl border-border/60">
+          <VisuallyHidden.Root>
+            <SheetTitle>{t("loading")}</SheetTitle>
+          </VisuallyHidden.Root>
+          <div className="flex h-32 items-center justify-center">
+            <Loader2 className="h-5 w-5 animate-spin text-muted-foreground" />
+          </div>
+        </SheetContent>
+      </Sheet>
+    );
+  }
 
   return (
     <Sheet open={open} onOpenChange={onOpenChange}>
@@ -134,8 +148,9 @@ export const CardLimitsSheet = ({
         <SheetHeader>
           <SheetTitle className="font-display flex items-center gap-2">
             <Shield className="h-5 w-5 text-primary-glow" />
-            Card limits & controls
+            {t("title")}
           </SheetTitle>
+          <SheetDescription>{t("description")}</SheetDescription>
         </SheetHeader>
 
         <div className="mt-5 space-y-6">
@@ -143,13 +158,15 @@ export const CardLimitsSheet = ({
             <div className="flex items-end justify-between">
               <div>
                 <p className="text-xs font-semibold text-muted-foreground">
-                  Daily spend limit
+                  {t("limits.daily.label")}
                 </p>
                 <p className="font-display text-2xl font-bold">
                   EGP {fmt(draft.daily_limit)}
                 </p>
               </div>
-              <p className="text-[11px] text-muted-foreground">500 – 20,000</p>
+              <p className="text-[11px] text-muted-foreground">
+                {t("limits.daily.range")}
+              </p>
             </div>
             <Slider
               value={[draft.daily_limit]}
@@ -157,6 +174,7 @@ export const CardLimitsSheet = ({
               max={20000}
               step={100}
               onValueChange={([v]) => set("daily_limit", v)}
+              aria-label={t("limits.daily.label")}
             />
           </div>
 
@@ -164,14 +182,14 @@ export const CardLimitsSheet = ({
             <div className="flex items-end justify-between">
               <div>
                 <p className="text-xs font-semibold text-muted-foreground">
-                  Monthly spend limit
+                  {t("limits.monthly.label")}
                 </p>
                 <p className="font-display text-2xl font-bold">
                   EGP {fmt(draft.monthly_limit)}
                 </p>
               </div>
               <p className="text-[11px] text-muted-foreground">
-                5,000 – 200,000
+                {t("limits.monthly.range")}
               </p>
             </div>
             <Slider
@@ -180,6 +198,7 @@ export const CardLimitsSheet = ({
               max={200000}
               step={500}
               onValueChange={([v]) => set("monthly_limit", v)}
+              aria-label={t("limits.monthly.label")}
             />
           </div>
 
@@ -187,13 +206,15 @@ export const CardLimitsSheet = ({
             <div className="flex items-end justify-between">
               <div>
                 <p className="text-xs font-semibold text-muted-foreground">
-                  Per-transaction cap
+                  {t("limits.perTransaction.label")}
                 </p>
                 <p className="font-display text-2xl font-bold">
                   EGP {fmt(draft.per_transaction_limit)}
                 </p>
               </div>
-              <p className="text-[11px] text-muted-foreground">100 – 10,000</p>
+              <p className="text-[11px] text-muted-foreground">
+                {t("limits.perTransaction.range")}
+              </p>
             </div>
             <Slider
               value={[draft.per_transaction_limit]}
@@ -201,6 +222,7 @@ export const CardLimitsSheet = ({
               max={10000}
               step={50}
               onValueChange={([v]) => set("per_transaction_limit", v)}
+              aria-label={t("limits.perTransaction.label")}
             />
           </div>
 
@@ -220,6 +242,7 @@ export const CardLimitsSheet = ({
                 <Switch
                   checked={draft[key] as boolean}
                   onCheckedChange={(v) => set(key, v as never)}
+                  aria-label={label}
                 />
               </li>
             ))}
@@ -233,11 +256,12 @@ export const CardLimitsSheet = ({
             {saving ? (
               <Loader2 className="h-4 w-4 animate-spin" />
             ) : (
-              "Save limits"
+              t("saveButton")
             )}
           </Button>
+
           <p className="pb-2 text-center text-[10px] text-muted-foreground">
-            Changes apply instantly to your virtual card.
+            {t("footerNote")}
           </p>
         </div>
       </SheetContent>

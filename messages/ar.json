@@ -341,6 +341,9 @@
     }
   },
   "DashboardPage": {
+    "totalBalance": "الرصيد الكلي",
+    "available": "المتاح",
+    "frozen": "المجمد",
     "greeting": "صباح الخير",
     "currency": "ج",
     "currentBalance": "الرصيد الحالي",
@@ -381,6 +384,7 @@
     "rules": "القواعد",
     "insights": "الرؤى",
     "report": "التقرير",
+    "monthly_report": "التقرير الشهري",
     "market": "السوق",
     "realEstate": "العقارات",
     "family": "العائلة",
@@ -653,7 +657,7 @@
     "failedToReject": "فشل رفض الطلب",
     "depositedSuccess": "تم إيداع {amount} جنيه",
     "transactionDeclined": "المعاملة مرفوضة",
-    "cardCharged": "تم شحن البطاقة بمبلغ {amount} جنيه",
+    "cardCharged": "تمت العملية بنجاح - المبلغ {amount} جنيه",
     "cardUnfrozen": "تم إلغاء تجميد البطاقة",
     "sent": "مرسل",
     "received": "مستلم",
@@ -751,15 +755,6 @@
       "saved": "تم التوفير"
     }
   },
-  "Chat": {
-    "title": "فكا-بوت",
-    "online": "متصل · مستشارك المالي",
-    "clearChat": "مسح المحادثة",
-    "placeholder": "اكتب سؤالك هنا...",
-    "welcomeTitle": "👋 أهلاً بيك في فكا انفيست!",
-    "welcomeMessage": "أنا فكا-بوت، مستشارك المالي الذكي. أقدر أشوف رصيدك، معاملاتك، وأهدافك وأساعدك تحقق أهدافك المالية الحلال 🚀",
-    "suggestionsTitle": "اقتراحات لتبدأ بها"
-  },
   "ProfilePage": {
     "header": {
       "subtitle": "الملف الشخصي",
@@ -822,5 +817,276 @@
     "footer": {
       "version": "FakaInvest الإصدار 0.1 · صنع بحب لسلام هاك"
     }
+  },
+  "MorePage": {
+    "head": "كل شيء آخر",
+    "title": "المزيد",
+    "askGemini": "اسأل Gemini أي شيء",
+    "assistantDesc": "مستشارك المالي 24/7",
+    "walletCard": "المحفظة والبطاقة",
+    "walletDesc": "الرصيد · الحدود · البطاقة الافتراضية",
+    "transactions": "المعاملات",
+    "transactionsDesc": "حركة الأموال بالكامل",
+    "insights": "الرؤى",
+    "insightsDesc": "صافي الثروة · التحركات · الخريطة الحرارية",
+    "goals": "الأهداف",
+    "goalsDesc": "وفر لما يهم",
+    "budget": "الميزانية",
+    "budgetDesc": "حدود ذكية للإنفاق",
+    "rules": "القواعد",
+    "rulesDesc": "أتمتة إذا-حدث-كذا",
+    "monthlyReport": "التقرير الشهري",
+    "reportDesc": "ملخص مدعوم بالذكاء الاصطناعي",
+    "market": "السوق والعروض",
+    "marketDesc": "أسعار حية · عروض استرداد النقود",
+    "realEstate": "العقارات",
+    "realEstateDesc": "ملكية مشتركة من 980 جنيه",
+    "familyWallet": "محفظة العائلة",
+    "familyDesc": "إدارة إنفاق الجميع",
+    "rewards": "المكافآت",
+    "rewardsDesc": "الشارات · التحديات · لوحة المتصدرين",
+    "referral": "الإحالة واكسب",
+    "referralDesc": "احصل على 100 جنيه لكل صديق",
+    "profile": "الملف الشخصي",
+    "profileDesc": "الإعدادات والحساب",
+    "new": "جديد"
+  },
+  "Chat": {
+    "online": "متصل",
+    "financialAdvisor": "مستشارك المالي",
+    "clearChat": "مسح الدردشة",
+    "welcome": "أهلاً بيك في فكا انفيست!",
+    "welcomeDesc": "أنا فكا-بوت، مستشارك المالي الذكي. أقدر أشوف رصيدك، معاملاتك، وأهدافك وأساعدك تحقق أهدافك المالية الحلال",
+    "suggestions": "اقتراحات لتبدأ بها",
+    "analyzeSpending": "حلل مصاريف الشهر",
+    "investGold": "أستثمر في دهب ولا ايه؟",
+    "explainHealthScore": "شرح درجة الصحة المالية",
+    "pendingRoundups": "عندي {amount} جنيه معلقة من التقريب، اعمل بيهم ايه؟",
+    "investFromBalance": "ازاي أستثمر {amount} جنيه من رصيدي؟",
+    "improveHealthScore": "ازاي أحسن درجة الصحة المالية بتاعتي؟",
+    "saveTarget": "ازاي أوصل لـ 10,000 جنيه خلال 6 شهور؟",
+    "dailySavingTips": "نصايح لتوفير الفكة يومياً",
+    "sukukVsStocks": "الفرق بين الصكوك والأسهم",
+    "increaseSavingPoints": "ازاي أزود نقاط التوفير؟",
+    "placeholder": "اكتب سؤالك هنا...",
+    "askAboutMoney": "اسأل عن أموالك..."
+  },
+  "CardLimits": {
+    "title": "حدود البطاقة والتحكم فيها",
+    "description": "تحكم في حدود الإنفاق وإعدادات الأمان لبطاقتك الافتراضية",
+    "loading": "جاري تحميل إعدادات البطاقة",
+    "saveButton": "حفظ الحدود",
+    "footerNote": "التغييرات تُطبق فوراً على بطاقتك الافتراضية",
+    "limits": {
+      "daily": {
+        "label": "حد الإنفاق اليومي",
+        "range": "500 – 20,000"
+      },
+      "monthly": {
+        "label": "حد الإنفاق الشهري",
+        "range": "5,000 – 200,000"
+      },
+      "perTransaction": {
+        "label": "الحد الأقصى للمعاملة الواحدة",
+        "range": "100 – 10,000"
+      }
+    },
+    "toggles": {
+      "online": {
+        "label": "المدفوعات الإلكترونية",
+        "desc": "التسوق عبر الإنترنت والاشتراكات"
+      },
+      "contactless": {
+        "label": "الدفع بدون تلامس / NFC",
+        "desc": "ادفع بمجرد اللمس"
+      },
+      "international": {
+        "label": "المعاملات الدولية",
+        "desc": "خارج مصر"
+      },
+      "atm": {
+        "label": "سحوبات الصراف الآلي",
+        "desc": "السحب النقدي"
+      }
+    },
+    "errors": {
+      "perTransactionExceedsDaily": "الحد الأقصى للمعاملة لا يمكن أن يتجاوز الحد اليومي",
+      "dailyExceedsMonthly": "الحد اليومي لا يمكن أن يتجاوز الحد الشهري"
+    },
+    "success": {
+      "title": "تم تحديث حدود البطاقة",
+      "description": "سيتم تطبيق الحدود على كل معاملة"
+    }
+  },
+  "Goals": {
+    "frozenForGoal": "مجمدة للهدف",
+    "frozenDescription": "هذا المبلغ محجوز لهذا الهدف ولا يمكن صرفه",
+    "freezeAmount": "تجميد مبلغ للهدف",
+    "freeze": "تجميد",
+    "unfreeze": "إلغاء التجميد",
+    "cannotDeleteWithFrozenFunds": "لا يمكن حذف الهدف لأنه يحتوي على {amount} جنيه مجمدة. قم بإلغاء التجميد أولاً",
+    "noFrozenFunds": "لا توجد أموال مجمدة لهذا الهدف",
+    "title": "الأهداف",
+    "subtitle": "وفر لما يهمك",
+    "newGoal": "هدف جديد",
+    "saved": "تم التوفير",
+    "target": "الهدف",
+    "dailyRequired": "المطلوب يومياً",
+    "deadline": "الموعد النهائي",
+    "topUpAmount": "مبلغ الإضافة (جنيه)",
+    "topUp": "إضافة",
+    "delete": "حذف",
+    "empty": "لا توجد أهداف بعد — قم بإنشاء هدف للبدء",
+    "pickCategory": "اختر التصنيف",
+    "titlePlaceholder": "عنوان الهدف (مثال: رحلة إلى تركيا)",
+    "targetPlaceholder": "المبلغ المستهدف جنيه",
+    "create": "إنشاء هدف",
+    "savedAmount": "جنيه {saved} / {target}",
+    "daysLeft": "متبقي {days} يوم",
+    "categories": {
+      "travel": "سفر",
+      "apartment": "شقة",
+      "device": "جهاز",
+      "education": "تعليم",
+      "other": "أخرى"
+    },
+    "insight": {
+      "title": "نصيحة من Gemini",
+      "description": "اضغط على التوفير التلقائي لوضعه في وضع \"متسارع\" لمدة 30 يومًا لتحقيق هدفك الرئيسي قبل الموعد بأسابيع."
+    },
+    "errors": {
+      "notAuthenticated": "يرجى تسجيل الدخول أولاً",
+      "titleRequired": "الرجاء إضافة عنوان للهدف",
+      "invalidTarget": "المبلغ المستهدف غير صالح",
+      "deadlineRequired": "الرجاء تحديد موعد نهائي",
+      "invalidAmount": "المبلغ غير صالح",
+      "insufficientBalance": "رصيد المحفظة غير كافٍ",
+      "goalNotFound": "الهدف غير موجود",
+      "fetchFailed": "فشل في جلب الأهداف",
+      "createFailed": "فشل في إنشاء الهدف",
+      "contributeFailed": "فشل في إضافة المبلغ",
+      "deleteFailed": "فشل في حذف الهدف",
+      "timeout": "انتهت مهلة الطلب",
+      "networkError": "خطأ في الشبكة"
+    },
+    "success": {
+      "created": "تم إنشاء الهدف بنجاح",
+      "contributed": "تم إضافة {amount} جنيه للهدف",
+      "deleted": "تم حذف الهدف",
+      "frozen": "تم تجميد {amount} جنيه لهدف {goal}",
+      "unfrozen": "تم إلغاء تجميد {amount} جنيه من هدف {goal}"
+    }
+  },
+  "Budget": {
+    "subtitle": "ميزانية ذكية",
+    "title": "حدود الإنفاق",
+    "add": "إضافة",
+    "thisMonth": "هذا الشهر",
+    "ofBudget": "من إجمالي {total} جنيه مخصص",
+    "vsLastMonth": "مقارنة بالشهر الماضي",
+    "trendTitle": "اتجاه 6 أشهر",
+    "spentPerMonth": "جنيه مصروف / شهر",
+    "categories": "التصنيفات",
+    "empty": "لا توجد تصنيفات حتى الآن — أضف تصنيفاً للبدء",
+    "cap": "الحد",
+    "warningLeft": "تبقى 20%",
+    "over": "تجاوز",
+    "newCategory": "تصنيف جديد",
+    "categoryNamePlaceholder": "اسم التصنيف",
+    "monthlyCapPlaceholder": "الحد الشهري (جنيه)",
+    "addCategory": "إضافة تصنيف",
+    "errors": {
+      "nameRequired": "الرجاء إضافة اسم للتصنيف",
+      "invalidCap": "الحد الشهري غير صالح"
+    },
+    "success": {
+      "capUpdated": "تم تحديث الحد بنجاح",
+      "categoryAdded": "تم اضافه التصنيف بنجاح",
+      "categoryDeleted": "تم حذف الحد بنجاح"
+    },
+    "suggestion": {
+      "title": "اقتراح إعادة تخصيص",
+      "description": "أنت تنفق أقل باستمرار في الترفيه بنسبة 60%. هل ترغب في نقل 400 جنيه إلى حد الطعام؟",
+      "apply": "تطبيق",
+      "applyMessage": "سيتم التطبيق في أول الشهر القادم"
+    }
+  },
+  "Rules": {
+    "subtitle": "أتمتة أموالك",
+    "title": "القواعد",
+    "newRule": "قاعدة جديدة",
+    "activeRules": "القواعد النشطة",
+    "triggeredThisMonth": "تم التشغيل هذا الشهر",
+    "quickTemplates": "قوالب سريعة",
+    "yourRules": "قواعدك",
+    "empty": "لا توجد قواعد بعد — أضف قاعدة للبدء",
+    "remove": "حذف",
+    "triggeredCount": "تم التشغيل {count} مرة هذا الشهر",
+    "buildRule": "إنشاء قاعدة",
+    "whenThisHappens": "① عندما يحدث هذا",
+    "thenDoThis": "② ثم قم بهذا",
+    "activateRule": "تفعيل القاعدة",
+    "success": {
+      "activated": "تم تفعيل القاعدة",
+      "enabled": "تم تمكين القاعدة",
+      "disabled": "تم تعطيل القاعدة",
+      "deleted": "تم حذف القاعدة",
+      "created": "تم إنشاء القاعدة"
+    }
+  },
+  "Insights": {
+    "subtitle": "تحليلات متعمقة لأموالك",
+    "title": "الرؤى",
+    "ap1": "توقعات نهاية الشهر",
+    "ap1Desc": "بناءً على وتيرة الإنفاق الحالية",
+    "ap2": "تحقيق الهدف الرئيسي القادم",
+    "ap2Desc": "ماك بوك جديد",
+    "ap3": "انحراف التوزيع",
+    "ap3Desc": "أقل من معدل التضخم",
+    "ap4": "مخزن التضخم",
+    "ap4Desc": "أقل من معدل التضخم",
+    "netWorthTitle": "صافي الثروة · آخر 12 شهراً",
+    "change": "تغير",
+    "yoy": "سنوياً",
+    "targetVsActual": "التوزيع المستهدف مقابل الفعلي",
+    "portfolioDrift": "انحراف المحفظة",
+    "target": "المستهدف",
+    "actual": "الفعلي",
+    "budgetPulse": "نبض الميزانية",
+    "whenYouSpendMost": "متى تنفق أكثر",
+    "spendingHeatmap": "خريطة الإنفاق الحرارية",
+    "less": "أقل",
+    "more": "أكثر",
+    "intensity": "الشدة",
+    "gemini": "فكة بوت",
+    "heatmapSuggestion": {
+      "default": "تنفق أكثر في مساء الجمعة (6-9 مساءً). فكر في وضع حد مسائي."
+    }
+  },
+  "Report": {
+    "subtitle": "التقرير الشهري بالذكاء الاصطناعي",
+    "poweredBy": "مدعوم من",
+    "greeting": "مرحباً، هذا ملخص شهرك 👇",
+    "totalSpent": "إجمالي الإنفاق",
+    "totalInvested": "إجمالي الاستثمارات",
+    "vsLastMonth": "مقارنة بالشهر الماضي",
+    "return": "العائد",
+    "topCategory": "الفئة الأعلى",
+    "roundUps": "التقريب التلقائي",
+    "transactions": "معاملة",
+    "geminiRecap": "ملخص الذكاء الاصطناعي",
+    "tipForNextMonth": "نصيحة للشهر القادم",
+    "pdf": "PDF",
+    "share": "مشاركة",
+    "copiedToClipboard": "تم نسخ النص إلى الحافظة",
+    "downloaded": "تم تحميل التقرير",
+    "error": "حدث خطأ في تحميل التقرير",
+    "retry": "إعادة المحاولة",
+    "financialReport": "تقرير مالي",
+    "insight": "الرؤية",
+    "tip": "النصيحة",
+    "copied": "تم النسخ",
+    "downloadedReport": "تم تحميل التقرير",
+    "shareReport": "مشاركة التقرير"
   }
 }

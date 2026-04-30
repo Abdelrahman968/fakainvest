@@ -129,7 +129,7 @@ export function AppSidebar() {
 
       <SidebarContent className="px-2 py-3">
         {renderGroup(t("groups.banking"), main)}
-        {/* {renderGroup(t("groups.planAndGrow"), planning)} */}
+        {renderGroup(t("groups.planAndGrow"), planning)}
         {/* {renderGroup(t("groups.discover"), grow)} */}
         {renderGroup(t("groups.account"), account)}
       </SidebarContent>

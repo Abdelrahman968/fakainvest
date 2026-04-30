@@ -341,6 +341,9 @@
     }
   },
   "DashboardPage": {
+    "totalBalance": "Total Balance",
+    "available": "Available",
+    "frozen": "Frozen",
     "greeting": "Good morning",
     "currency": "EGP",
     "currentBalance": "Current Balance",
@@ -381,6 +384,7 @@
     "rules": "Rules",
     "insights": "Insights",
     "report": "Monthly report",
+    "monthly_report": "Monthly report",
     "market": "Market & Offers",
     "realEstate": "Real Estate",
     "family": "Family Wallet",
@@ -751,15 +755,6 @@
       "saved": "saved"
     }
   },
-  "Chat": {
-    "title": "FakaBot",
-    "online": "Online · Your AI Financial Advisor",
-    "clearChat": "Clear chat",
-    "placeholder": "Ask anything about your money...",
-    "welcomeTitle": "👋 Welcome to FakaInvest!",
-    "welcomeMessage": "I'm FakaBot, your smart financial advisor. I can see your balance, transactions, and goals to help you achieve your halal financial goals 🚀",
-    "suggestionsTitle": "Suggestions to get started"
-  },
   "ProfilePage": {
     "header": {
       "subtitle": "Profile",
@@ -822,5 +817,276 @@
     "footer": {
       "version": "FakaInvest v0.1 · Made with ♥ for salam hack"
     }
+  },
+  "MorePage": {
+    "head": "Everything else",
+    "title": "More",
+    "askGemini": "Ask Our Expert System",
+    "assistantDesc": "Your 24/7 finance advisor",
+    "walletCard": "Wallet & card",
+    "walletDesc": "Balance · Limits · Virtual card",
+    "transactions": "Transactions",
+    "transactionsDesc": "All money movement",
+    "insights": "Insights",
+    "insightsDesc": "Net worth · drift · heatmap",
+    "goals": "Goals",
+    "goalsDesc": "Save for what matters",
+    "budget": "Budget",
+    "budgetDesc": "Smart spending caps",
+    "rules": "Rules",
+    "rulesDesc": "If-this-then-that automation",
+    "monthlyReport": "Monthly report",
+    "reportDesc": "AI-powered recap",
+    "market": "Market & Offers",
+    "marketDesc": "Live rates · Cashback deals",
+    "realEstate": "Real Estate",
+    "realEstateDesc": "Co-own from EGP 980",
+    "familyWallet": "Family Wallet",
+    "familyDesc": "Manage everyone's spending",
+    "rewards": "Rewards",
+    "rewardsDesc": "Badges · Challenges · Leaderboard",
+    "referral": "Refer & Earn",
+    "referralDesc": "Get EGP 100 per friend",
+    "profile": "Profile",
+    "profileDesc": "Settings & account",
+    "new": "New"
+  },
+  "Chat": {
+    "online": "Online",
+    "financialAdvisor": "Your AI Financial Advisor",
+    "clearChat": "Clear chat",
+    "welcome": "Welcome to FakaInvest!",
+    "welcomeDesc": "I'm FakaBot, your smart financial advisor. I can see your balance, transactions, and goals to help you achieve your halal financial goals",
+    "suggestions": "Suggestions to get started",
+    "analyzeSpending": "Analyze my monthly spending",
+    "investGold": "Should I invest in gold?",
+    "explainHealthScore": "Explain Financial Health Score",
+    "pendingRoundups": "I have {amount} EGP in pending RoundUps, what should I do?",
+    "investFromBalance": "How to invest {amount} EGP from my balance?",
+    "improveHealthScore": "How to improve my Financial Health Score?",
+    "saveTarget": "How to save 10,000 EGP in 6 months?",
+    "dailySavingTips": "Daily saving tips for spare change",
+    "sukukVsStocks": "Difference between Sukuk and stocks",
+    "increaseSavingPoints": "How to earn more saving points?",
+    "placeholder": "Ask anything about your money...",
+    "askAboutMoney": "Ask about your money..."
+  },
+  "CardLimits": {
+    "title": "Card limits & controls",
+    "description": "Control your spending limits and security settings for your virtual card",
+    "loading": "Loading card settings",
+    "saveButton": "Save limits",
+    "footerNote": "Changes apply instantly to your virtual card.",
+    "limits": {
+      "daily": {
+        "label": "Daily spend limit",
+        "range": "500 – 20,000"
+      },
+      "monthly": {
+        "label": "Monthly spend limit",
+        "range": "5,000 – 200,000"
+      },
+      "perTransaction": {
+        "label": "Per-transaction cap",
+        "range": "100 – 10,000"
+      }
+    },
+    "toggles": {
+      "online": {
+        "label": "Online payments",
+        "desc": "E-commerce & subscriptions"
+      },
+      "contactless": {
+        "label": "Contactless / NFC",
+        "desc": "Tap to pay"
+      },
+      "international": {
+        "label": "International",
+        "desc": "Outside Egypt"
+      },
+      "atm": {
+        "label": "ATM withdrawals",
+        "desc": "Cash advances"
+      }
+    },
+    "errors": {
+      "perTransactionExceedsDaily": "Per-transaction limit can't exceed daily limit",
+      "dailyExceedsMonthly": "Daily limit can't exceed monthly limit"
+    },
+    "success": {
+      "title": "Card limits updated",
+      "description": "Enforced on every card transaction"
+    }
+  },
+  "Goals": {
+    "frozenForGoal": "Frozen for goal",
+    "frozenDescription": "This amount is reserved for this goal and cannot be spent",
+    "freezeAmount": "Freeze amount for goal",
+    "freeze": "Freeze",
+    "unfreeze": "Unfreeze",
+    "cannotDeleteWithFrozenFunds": "Cannot delete goal because it has {amount} EGP frozen. Please unfreeze first",
+    "noFrozenFunds": "No frozen funds for this goal",
+    "title": "Goals",
+    "subtitle": "Save for what matters",
+    "newGoal": "New goal",
+    "saved": "Saved",
+    "target": "Target",
+    "dailyRequired": "Daily required",
+    "deadline": "Deadline",
+    "topUpAmount": "Top up amount (EGP)",
+    "topUp": "Top up",
+    "delete": "Delete",
+    "empty": "No goals yet — create one to get started.",
+    "pickCategory": "Pick a category",
+    "titlePlaceholder": "Goal title (e.g. Trip to Türkiye)",
+    "targetPlaceholder": "Target amount EGP",
+    "create": "Create goal",
+    "savedAmount": "EGP {saved} / {target}",
+    "daysLeft": "{days}d left",
+    "categories": {
+      "travel": "Travel",
+      "apartment": "Apartment",
+      "device": "Device",
+      "education": "Education",
+      "other": "Other"
+    },
+    "insight": {
+      "title": "Ai insight",
+      "description": "Push your round-up to \"Aggressive\" for 30 days to hit your top goal weeks earlier."
+    },
+    "errors": {
+      "notAuthenticated": "Please sign in first",
+      "titleRequired": "Please add a goal title",
+      "invalidTarget": "Invalid target amount",
+      "deadlineRequired": "Please pick a deadline",
+      "invalidAmount": "Invalid amount",
+      "insufficientBalance": "Insufficient wallet balance",
+      "goalNotFound": "Goal not found",
+      "fetchFailed": "Failed to fetch goals",
+      "createFailed": "Failed to create goal",
+      "contributeFailed": "Failed to add contribution",
+      "deleteFailed": "Failed to delete goal",
+      "timeout": "Request timeout",
+      "networkError": "Network error"
+    },
+    "success": {
+      "created": "Goal created successfully",
+      "contributed": "Added {amount} EGP to goal",
+      "deleted": "Goal deleted",
+      "frozen": "Frozen {amount} EGP for goal {goal}",
+      "unfrozen": "Unfrozen {amount} EGP from goal {goal}"
+    }
+  },
+  "Budget": {
+    "subtitle": "Smart budget",
+    "title": "Spending caps",
+    "add": "Add",
+    "thisMonth": "This month",
+    "ofBudget": "of EGP {total} budgeted",
+    "vsLastMonth": "vs last month",
+    "trendTitle": "6-month trend",
+    "spentPerMonth": "EGP spent / mo",
+    "categories": "Categories",
+    "empty": "No categories yet — add one to get started",
+    "cap": "Cap",
+    "warningLeft": "20% left",
+    "over": "Over",
+    "newCategory": "New category",
+    "categoryNamePlaceholder": "Category name",
+    "monthlyCapPlaceholder": "Monthly cap (EGP)",
+    "addCategory": "Add category",
+    "errors": {
+      "nameRequired": "Please add a category name",
+      "invalidCap": "Invalid monthly cap"
+    },
+    "success": {
+      "capUpdated": "Cap updated successfully",
+      "categoryAdded": "Category added successfully",
+      "categoryDeleted": "Category Deleted successfully"
+    },
+    "suggestion": {
+      "title": "Reallocation suggestion",
+      "description": "You consistently underspend Entertainment by 60%. Move EGP 400 to Food cap?",
+      "apply": "Apply",
+      "applyMessage": "Will apply on the 1st of next month"
+    }
+  },
+  "Rules": {
+    "subtitle": "Automate your money",
+    "title": "Rules",
+    "newRule": "New rule",
+    "activeRules": "Active rules",
+    "triggeredThisMonth": "Triggered this month",
+    "quickTemplates": "Quick templates",
+    "yourRules": "Your rules",
+    "empty": "No rules yet — add one to get started",
+    "remove": "Remove",
+    "triggeredCount": "Triggered {count}× this month",
+    "buildRule": "Build a rule",
+    "whenThisHappens": "① When this happens",
+    "thenDoThis": "② Then do this",
+    "activateRule": "Activate rule",
+    "success": {
+      "activated": "Rule activated",
+      "enabled": "Rule enabled",
+      "disabled": "Rule disabled",
+      "deleted": "Rule deleted",
+      "created": "Rule created"
+    }
+  },
+  "Insights": {
+    "subtitle": "Deep analytics on your money",
+    "title": "Insights",
+    "ap1": "End-of-month projection",
+    "ap2": "Next major goal hit",
+    "ap3": "Allocation drift",
+    "ap4": "Inflation buffer",
+    "ap1Desc": "Based on current spending pace",
+    "ap2Desc": "New MacBook",
+    "ap3Desc": "Underweight in stocks",
+    "ap4Desc": "Below inflation rate",
+    "netWorthTitle": "Net worth · last 12 months",
+    "change": "change",
+    "yoy": "YoY",
+    "targetVsActual": "Target vs actual allocation",
+    "portfolioDrift": "Portfolio drift",
+    "target": "Target",
+    "actual": "Actual",
+    "budgetPulse": "Budget pulse",
+    "whenYouSpendMost": "When you spend most",
+    "spendingHeatmap": "Spending heatmap",
+    "less": "Less",
+    "more": "More",
+    "intensity": "Intensity",
+    "gemini": "Faka Bot",
+    "heatmapSuggestion": {
+      "default": "You spend most on Friday evenings (6-9 PM). Consider setting an evening cap."
+    }
+  },
+  "Report": {
+    "subtitle": "AI Monthly Report",
+    "poweredBy": "Powered by",
+    "greeting": "Hey, here's how your month went 👇",
+    "totalSpent": "Total spent",
+    "totalInvested": "Total invested",
+    "vsLastMonth": "vs last month",
+    "return": "Return",
+    "topCategory": "Top category",
+    "roundUps": "Round-ups",
+    "transactions": "transactions",
+    "geminiRecap": "AI's recap",
+    "tipForNextMonth": "Tip for next month",
+    "pdf": "PDF",
+    "share": "Share",
+    "copiedToClipboard": "Copied to clipboard",
+    "downloaded": "Report downloaded",
+    "error": "Error loading report",
+    "retry": "Retry",
+    "financialReport": "Financial Report",
+    "insight": "Faka Insights",
+    "tip": "Tip",
+    "copied": "Copied",
+    "downloadedReport": "Report Downloaded",
+    "shareReport": "Share Report"
   }
 }

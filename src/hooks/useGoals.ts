@@ -2,6 +2,8 @@
 
 import { useCallback, useEffect, useState, useRef } from "react";
 import { useAuth } from "@/contexts/AuthContext";
+import { toast } from "sonner";
+import { useTranslations } from "next-intl";
 
 export type GoalCategory =
   | "Travel"
@@ -18,7 +20,7 @@ export type Goal = {
   category: GoalCategory;
   target: number;
   saved: number;
-  deadline: string | null;
+  deadline: string;
   color: string;
   created_at: string;
   updated_at: string;
@@ -27,283 +29,291 @@ export type Goal = {
   dailyRequired: number | null;
 };
 
-export type GoalContribution = {
-  id: string;
-  goal_id: string;
-  user_id: string;
-  amount: number;
-  note: string | null;
-  goal_title?: string;
-  goal_emoji?: string;
-  goal_color?: string;
-  created_at: string;
-  updated_at: string;
-};
-
-export type CreateGoalInput = {
-  title: string;
-  emoji?: string;
-  category?: GoalCategory;
-  targetAmount: number;
-  savedAmount?: number;
-  deadline?: string;
-  color?: string;
-};
-
-export type AddContributionInput = {
-  goalId: string;
-  amount: number;
-  note?: string;
+export const dailyRequired = (goal: Goal): number => {
+  if (!goal.deadline) return 0;
+  const daysLeft = Math.max(
+    1,
+    Math.ceil((new Date(goal.deadline).getTime() - Date.now()) / 86400000),
+  );
+  const remaining = Math.max(0, goal.target - goal.saved);
+  return Math.ceil(remaining / daysLeft);
 };
 
 export const useGoals = () => {
+  const t = useTranslations("Goals");
   const { user } = useAuth();
   const [goals, setGoals] = useState<Goal[]>([]);
-  const [contributions, setContributions] = useState<GoalContribution[]>([]);
   const [loading, setLoading] = useState(true);
-  const [selectedGoal, setSelectedGoal] = useState<Goal | null>(null);
-  const isInitialMount = useRef(true);
+  const [error, setError] = useState<string | null>(null);
+  const isMounted = useRef(true);
+
+  useEffect(() => {
+    isMounted.current = true;
+    return () => {
+      isMounted.current = false;
+    };
+  }, []);
 
   const refreshGoals = useCallback(async () => {
     if (!user) {
-      setGoals([]);
-      setLoading(false);
+      if (isMounted.current) {
+        setGoals([]);
+        setLoading(false);
+      }
       return;
     }
 
-    setLoading(true);
-    try {
-      const res = await fetch("/api/goals");
-      if (res.ok) {
-        const data = await res.json();
-        setGoals(data.goals || []);
-      } else {
-        setGoals([]);
-      }
-    } catch (err) {
-      console.error("[useGoals] Error fetching goals:", err);
-      setGoals([]);
-    } finally {
-      setLoading(false);
+    if (isMounted.current) {
+      setLoading(true);
+      setError(null);
     }
-  }, [user]);
 
-  const refreshContributions = useCallback(
-    async (goalId?: string) => {
-      if (!user) return;
+    try {
+      const controller = new AbortController();
+      const timeoutId = setTimeout(() => controller.abort(), 10000);
 
-      try {
-        const url = goalId
-          ? `/api/goals/contributions?goalId=${goalId}`
-          : "/api/goals/contributions";
-        const res = await fetch(url);
-        if (res.ok) {
-          const data = await res.json();
-          setContributions(data.contributions || []);
-        }
-      } catch (err) {
-        console.error("[useGoals] Error fetching contributions:", err);
+      const res = await fetch("/api/goals", { signal: controller.signal });
+      clearTimeout(timeoutId);
+
+      if (!isMounted.current) return;
+
+      if (!res.ok) {
+        const errorData = await res
+          .json()
+          .catch(() => ({ error: "Unknown error" }));
+        throw new Error(errorData.error || "Failed to fetch goals");
       }
-    },
-    [user],
-  );
 
-  const fetchGoalById = useCallback(
-    async (goalId: string) => {
-      if (!user) return null;
+      const data = await res.json();
+      setGoals(data.goals || []);
+    } catch (err) {
+      if (!isMounted.current) return;
 
-      try {
-        const res = await fetch(`/api/goals/${goalId}`);
-        if (res.ok) {
-          const data = await res.json();
-          return data.goal;
+      let errorMessage = t("errors.fetchFailed");
+      if (err instanceof Error) {
+        if (err.name === "AbortError") {
+          errorMessage = t("errors.timeout");
+        } else {
+          errorMessage = err.message;
         }
-      } catch (err) {
-        console.error("[useGoals] Error fetching goal:", err);
       }
-      return null;
-    },
-    [user],
-  );
+      setError(errorMessage);
+      console.error("Error fetching goals:", err);
+    } finally {
+      if (isMounted.current) {
+        setLoading(false);
+      }
+    }
+  }, [user, t]);
+
+  useEffect(() => {
+    refreshGoals();
+  }, [refreshGoals]);
 
   const createGoal = useCallback(
-    async (
-      input: CreateGoalInput,
-    ): Promise<{ ok: true; goal: Goal } | { ok: false; reason: string }> => {
-      if (!user) return { ok: false, reason: "Not authenticated" };
-      if (!input.title?.trim())
-        return { ok: false, reason: "Title is required" };
-      if (!input.targetAmount || input.targetAmount <= 0) {
-        return { ok: false, reason: "Target amount must be greater than 0" };
+    async (input: {
+      title: string;
+      emoji: string;
+      category: GoalCategory;
+      target: number;
+      deadline: string;
+      color: string;
+    }): Promise<{ ok: boolean; error?: string; goal?: Goal }> => {
+      if (!user) {
+        const errorMsg = t("errors.notAuthenticated");
+        toast.error(errorMsg);
+        return { ok: false, error: errorMsg };
+      }
+
+      if (!input.title.trim()) {
+        const errorMsg = t("errors.titleRequired");
+        toast.error(errorMsg);
+        return { ok: false, error: errorMsg };
+      }
+
+      if (!input.target || input.target <= 0) {
+        const errorMsg = t("errors.invalidTarget");
+        toast.error(errorMsg);
+        return { ok: false, error: errorMsg };
+      }
+
+      if (!input.deadline) {
+        const errorMsg = t("errors.deadlineRequired");
+        toast.error(errorMsg);
+        return { ok: false, error: errorMsg };
       }
 
       try {
+        const controller = new AbortController();
+        const timeoutId = setTimeout(() => controller.abort(), 15000);
+
+        const payload = {
+          title: input.title,
+          emoji: input.emoji,
+          category: input.category,
+          targetAmount: input.target,
+          deadline: input.deadline,
+          color: input.color,
+        };
+
+        console.log("Sending payload:", payload);
         const res = await fetch("/api/goals", {
           method: "POST",
           headers: { "Content-Type": "application/json" },
-          body: JSON.stringify(input),
+          body: JSON.stringify(payload),
+          signal: controller.signal,
         });
+
+        clearTimeout(timeoutId);
+
         const data = await res.json();
+
         if (!res.ok) {
-          return { ok: false, reason: data.error || "Failed to create goal" };
+          const errorMsg = data.error || t("errors.createFailed");
+          toast.error(errorMsg);
+          return { ok: false, error: errorMsg };
         }
+
         await refreshGoals();
+        toast.success(t("success.created"));
         return { ok: true, goal: data.goal };
-      } catch {
-        return { ok: false, reason: "Network error" };
+      } catch (err) {
+        console.error("Create goal error:", err);
+        const errorMsg =
+          err instanceof Error && err.name === "AbortError"
+            ? t("errors.timeout")
+            : t("errors.networkError");
+        toast.error(errorMsg);
+        return { ok: false, error: errorMsg };
       }
     },
-    [user, refreshGoals],
+    [user, refreshGoals, t],
   );
 
-  const updateGoal = useCallback(
+  const contribute = useCallback(
     async (
       goalId: string,
-      updates: Partial<Omit<CreateGoalInput, "savedAmount">>,
-    ): Promise<{ ok: true; goal: Goal } | { ok: false; reason: string }> => {
-      if (!user) return { ok: false, reason: "Not authenticated" };
-
-      try {
-        const res = await fetch(`/api/goals/${goalId}`, {
-          method: "PATCH",
-          headers: { "Content-Type": "application/json" },
-          body: JSON.stringify(updates),
-        });
-        const data = await res.json();
-        if (!res.ok) {
-          return { ok: false, reason: data.error || "Failed to update goal" };
-        }
-        await refreshGoals();
-        return { ok: true, goal: data.goal };
-      } catch {
-        return { ok: false, reason: "Network error" };
+      amount: number,
+    ): Promise<{ ok: boolean; error?: string }> => {
+      if (!user) {
+        const errorMsg = t("errors.notAuthenticated");
+        toast.error(errorMsg);
+        return { ok: false, error: errorMsg };
       }
-    },
-    [user, refreshGoals],
-  );
 
-  const deleteGoal = useCallback(
-    async (
-      goalId: string,
-    ): Promise<{ ok: true } | { ok: false; reason: string }> => {
-      if (!user) return { ok: false, reason: "Not authenticated" };
-
-      try {
-        const res = await fetch(`/api/goals/${goalId}`, {
-          method: "DELETE",
-        });
-        if (!res.ok) {
-          const data = await res.json();
-          return { ok: false, reason: data.error || "Failed to delete goal" };
-        }
-        await refreshGoals();
-        if (selectedGoal?.id === goalId) setSelectedGoal(null);
-        return { ok: true };
-      } catch {
-        return { ok: false, reason: "Network error" };
-      }
-    },
-    [user, refreshGoals, selectedGoal],
-  );
-
-  const addContribution = useCallback(
-    async (
-      input: AddContributionInput,
-    ): Promise<
-      | { ok: true; contribution: GoalContribution }
-      | { ok: false; reason: string }
-    > => {
-      if (!user) return { ok: false, reason: "Not authenticated" };
-      if (!input.goalId) return { ok: false, reason: "Goal ID is required" };
-      if (!input.amount || input.amount <= 0) {
-        return { ok: false, reason: "Amount must be greater than 0" };
+      if (!Number.isFinite(amount) || amount <= 0) {
+        const errorMsg = t("errors.invalidAmount");
+        toast.error(errorMsg);
+        return { ok: false, error: errorMsg };
       }
 
       try {
-        const res = await fetch("/api/goals/contributions", {
+        const controller = new AbortController();
+        const timeoutId = setTimeout(() => controller.abort(), 15000);
+
+        const res = await fetch("/api/goals/contribute", {
           method: "POST",
           headers: { "Content-Type": "application/json" },
-          body: JSON.stringify(input),
+          body: JSON.stringify({ goalId, amount }),
+          signal: controller.signal,
         });
-        const data = await res.json();
+
+        clearTimeout(timeoutId);
+
         if (!res.ok) {
-          return {
-            ok: false,
-            reason: data.error || "Failed to add contribution",
-          };
+          let errorMsg = t("errors.contributeFailed");
+          try {
+            const data = await res.json();
+            errorMsg = data.error || errorMsg;
+          } catch (e) {
+            errorMsg = res.statusText || errorMsg;
+          }
+          toast.error(errorMsg);
+          return { ok: false, error: errorMsg };
         }
+
+        let data;
+        try {
+          data = await res.json();
+        } catch (e) {
+          console.error("Failed to parse JSON response:", e);
+          const errorMsg = t("errors.networkError");
+          toast.error(errorMsg);
+          return { ok: false, error: errorMsg };
+        }
+
         await refreshGoals();
-        await refreshContributions(input.goalId);
-        return { ok: true, contribution: data.contribution };
-      } catch {
-        return { ok: false, reason: "Network error" };
+        toast.success(
+          t("success.contributed", { amount: amount.toLocaleString() }),
+        );
+        return { ok: true };
+      } catch (err) {
+        console.error("Contribute error:", err);
+        const errorMsg =
+          err instanceof Error && err.name === "AbortError"
+            ? t("errors.timeout")
+            : t("errors.networkError");
+        toast.error(errorMsg);
+        return { ok: false, error: errorMsg };
       }
     },
-    [user, refreshGoals, refreshContributions],
+    [user, refreshGoals, t],
   );
 
-  const deleteContribution = useCallback(
-    async (
-      contributionId: string,
-      goalId: string,
-    ): Promise<{ ok: true } | { ok: false; reason: string }> => {
-      if (!user) return { ok: false, reason: "Not authenticated" };
+  const removeGoal = useCallback(
+    async (goalId: string): Promise<{ ok: boolean; error?: string }> => {
+      if (!user) {
+        const errorMsg = t("errors.notAuthenticated");
+        toast.error(errorMsg);
+        return { ok: false, error: errorMsg };
+      }
 
       try {
-        const res = await fetch(`/api/goals/contributions/${contributionId}`, {
+        const controller = new AbortController();
+        const timeoutId = setTimeout(() => controller.abort(), 10000);
+
+        const res = await fetch(`/api/goals/${goalId}`, {
           method: "DELETE",
+          signal: controller.signal,
         });
+
+        clearTimeout(timeoutId);
+
         if (!res.ok) {
-          const data = await res.json();
-          return {
-            ok: false,
-            reason: data.error || "Failed to delete contribution",
-          };
+          let errorMsg = t("errors.deleteFailed");
+          try {
+            const data = await res.json();
+            errorMsg = data.error || errorMsg;
+          } catch (e) {
+            errorMsg = res.statusText || errorMsg;
+          }
+          toast.error(errorMsg);
+          return { ok: false, error: errorMsg };
         }
-        await refreshGoals();
-        await refreshContributions(goalId);
+
+        setGoals((prev) => prev.filter((g) => g.id !== goalId));
+        toast.success(t("success.deleted"));
         return { ok: true };
-      } catch {
-        return { ok: false, reason: "Network error" };
+      } catch (err) {
+        console.error("Delete goal error:", err);
+        const errorMsg =
+          err instanceof Error && err.name === "AbortError"
+            ? t("errors.timeout")
+            : t("errors.networkError");
+        toast.error(errorMsg);
+        return { ok: false, error: errorMsg };
       }
     },
-    [user, refreshGoals, refreshContributions],
+    [user, t],
   );
-
-  // ✅ الحل الأول: استخدام useRef لتجنب الاستدعاء المتزامن في أول مرة
-  useEffect(() => {
-    if (isInitialMount.current) {
-      isInitialMount.current = false;
-      // استخدام setTimeout لتأخير التحديث
-      setTimeout(() => {
-        refreshGoals();
-      }, 0);
-    }
-  }, [refreshGoals]);
-
-  // ✅ الحل الثاني: نفس الشيء لـ selectedGoal
-  useEffect(() => {
-    if (selectedGoal && !isInitialMount.current) {
-      const timer = setTimeout(() => {
-        refreshContributions(selectedGoal.id);
-      }, 0);
-      return () => clearTimeout(timer);
-    }
-  }, [selectedGoal, refreshContributions]);
 
   return {
     goals,
-    contributions,
     loading,
-    selectedGoal,
-    setSelectedGoal,
+    error,
     refreshGoals,
-    refreshContributions,
-    fetchGoalById,
     createGoal,
-    updateGoal,
-    deleteGoal,
-    addContribution,
-    deleteContribution,
+    contribute,
+    removeGoal,
   };
 };

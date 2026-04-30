@@ -26,10 +26,6 @@ export const useNotifications = () => {
       return;
     }
 
-    console.log(
-      "🔔 [useNotifications] Fetching notifications for user:",
-      user.id,
-    );
     setLoading(true);
 
     try {
@@ -42,14 +38,10 @@ export const useNotifications = () => {
         );
         setItems(data.notifications || []);
       } else {
-        console.log(
-          "🔔 [useNotifications] Failed to fetch notifications:",
-          res.status,
-        );
         setItems([]);
       }
     } catch (error) {
-      console.error("🔔 [useNotifications] Error:", error);
+      console.error("[useNotifications] Error:", error);
       setItems([]);
     } finally {
       setLoading(false);

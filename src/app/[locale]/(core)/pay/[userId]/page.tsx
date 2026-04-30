@@ -30,13 +30,10 @@ const PayUserPage = () => {
   const [sending, setSending] = useState(false);
   const [success, setSuccess] = useState(false);
 
-  // جلب بيانات المستلم
   useEffect(() => {
     const fetchRecipient = async () => {
       try {
-        console.log("Fetching user:", userId);
         const res = await fetch(`/api/users/${userId}`);
-        console.log("Response status:", res.status);
 
         if (!res.ok) {
           if (res.status === 404) {
