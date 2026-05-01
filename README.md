@@ -1,7 +1,7 @@
 # FakaInvest — Sharia-Compliant Personal Finance for Egypt 🇪🇬
 
 > Hackathon submission for **Salam Hack 2026** — Tracks 1, 2, and 3.
-> Built with **Next.js 15 + TypeScript + MongoDB** with AI integration via Groq API for the in-app advisor.
+> Built with **Next.js 16 + TypeScript + MongoDB** with AI integration via Groq API for the in-app advisor.
 
 ---
 
@@ -58,9 +58,9 @@ Visit `/auth`, create an account with any email + password (no confirmation requ
 
 | Layer          | Choice                                                           |
 | -------------- | ---------------------------------------------------------------- |
-| Framework      | Next.js 15 (App Router)                                          |
+| Framework      | Next.js 16 (App Router)                                          |
 | Language       | TypeScript                                                       |
-| UI             | Tailwind CSS v3 + shadcn/ui, lucide-react, framer-motion         |
+| UI             | Tailwind CSS v4 + shadcn/ui, lucide-react, framer-motion         |
 | State          | React hooks, Context API                                         |
 | Notifications  | sonner (toasts)                                                  |
 | Database       | MongoDB with Mongoose ODM                                        |
