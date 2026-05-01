@@ -12,7 +12,7 @@
 | 🚀 **Live Demo**   | [fakainvest.vercel.app](https://fakainvest.vercel.app/)                   |
 | 💻 **GitHub Repo** | [Abdelrahman968/fakainvest](https://github.com/Abdelrahman968/fakainvest) |
 | 🏆 **Hackathon**   | [Salam Hack — salamhack.com](https://salamhack.com/)                      |
-| 👤 **Developer**   | [Abdelrahman — Facebook](https://www.facebook.com/Abdelrahman.968)        |
+| 👤 **Developer**   | Vertex Team        |
 
 FakaInvest is a mobile-first wallet, automated savings/investing app, and Sharia-compliant financial advisor in one. Every screen is wired to a real MongoDB database; no localStorage, no fake fronts.
 
