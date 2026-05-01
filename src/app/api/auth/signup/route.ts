@@ -5,10 +5,13 @@ import { signToken, cookieOptions, TOKEN_COOKIE } from "@/lib/auth";
 import { connectDB } from "@/lib/mongoose";
 import { User } from "@/lib/models/User";
 import { seedNewUser } from "@/lib/seed";
+import { Referral, ReferralSignup } from "@/lib/models/Referral";
+import mongoose from "mongoose";
 
 export async function POST(request: Request) {
   try {
     const body = await request.json();
+    const { referralCode } = body;
 
     const parsed = signUpSchema.safeParse(body);
     if (!parsed.success) {
@@ -32,6 +35,28 @@ export async function POST(request: Request) {
 
     const passwordHash = await bcrypt.hash(password, 12);
     const user = await User.create({ displayName, email, passwordHash });
+
+    // Handle referral if code exists
+    let referredBy = null;
+    if (referralCode) {
+      const referral = await Referral.findOne({
+        code: referralCode.toUpperCase(),
+      }).lean();
+      if (referral) {
+        referredBy = referral.userId;
+
+        // Create referral signup record
+        await ReferralSignup.create({
+          referralId: referral._id,
+          referrerId: referral.userId,
+          name: displayName,
+          avatar: "👤",
+          status: "Pending",
+          earned: 0,
+          joinedAt: new Date(),
+        });
+      }
+    }
 
     await seedNewUser(user._id, displayName, email);
 

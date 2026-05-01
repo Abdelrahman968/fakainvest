@@ -480,32 +480,33 @@
   },
   "Auth": {
     "appName": "FakaInvest",
-    "appDescription": "AI · Arab World",
+    "appDescription": "Invest smarter",
     "welcomeBack": "Welcome back",
-    "createAccount": "Create your account",
-    "signinDescription": "Sign in to continue managing your money.",
-    "signupDescription": "Start saving and investing in under a minute.",
+    "createAccount": "Create account",
+    "signinDescription": "Sign in to access your wallet",
+    "signupDescription": "Create an account and start your investment journey",
     "displayName": "Display name",
-    "displayNamePlaceholder": "Abdelrahman Ayman",
+    "displayNamePlaceholder": "Enter your name",
     "email": "Email",
-    "emailPlaceholder": "you@gmail.com",
+    "emailPlaceholder": "example@email.com",
     "password": "Password",
-    "passwordPlaceholder": "At least 8 characters",
-    "showPassword": "Show password",
-    "hidePassword": "Hide password",
+    "passwordPlaceholder": "Strong password",
     "signinButton": "Sign in",
     "signupButton": "Create account",
-    "noAccount": "New here?",
+    "noAccount": "Don't have an account?",
     "hasAccount": "Already have an account?",
     "createOne": "Create one",
     "signin": "Sign in",
-    "termsAgreement": "By continuing you agree to FakaInvest's Terms & Privacy Policy.",
-    "welcome": "Welcome to FakaInvest!",
-    "accountCreated": "Account created successfully",
+    "termsAgreement": "By signing up, you agree to the terms and conditions",
+    "welcome": "Welcome!",
+    "accountCreated": "Your account has been created successfully",
+    "hidePassword": "Hide password",
+    "showPassword": "Show password",
+    "referralBonus": "🎉 Your referral bonus will be added after account verification!",
     "errors": {
-      "signupFailed": "Sign up failed",
-      "signinFailed": "Sign in failed",
-      "networkError": "Network error. Please check your connection."
+      "signupFailed": "Failed to create account",
+      "signinFailed": "Failed to sign in",
+      "networkError": "Network error"
     }
   },
   "Portfolio": {
@@ -1189,5 +1190,156 @@
     "yourRank": "Your rank",
     "leaderboardDesc": "Top FakaInvest savers this month · opt-in",
     "earnPointsDesc": "Earn points by saving daily, hitting goals, and completing challenges."
+  },
+  "Referral": {
+    "title": "Refer & Earn",
+    "earnPerFriend": "Earn EGP {amount} for every friend who joins",
+    "bothWin": "Give EGP {amount} · Get EGP {amount}",
+    "inviteFriends": "Invite friends, both win",
+    "yourCode": "Your referral code",
+    "copy": "Copy",
+    "copied": "Copied",
+    "shareLink": "Share link",
+    "totalEarned": "Total earned",
+    "friendsJoined": "Friends joined",
+    "active": "Active",
+    "pending": "Pending",
+    "yourReferrals": "Your referrals",
+    "friendsInvited": "Friends you've invited",
+    "noReferrals": "No referrals yet — share your code to get started",
+    "joined": "Joined",
+    "inactive": "Inactive",
+    "code": "Code",
+    "link": "Link",
+    "joinMessage": "Join FakaInvest with my code",
+    "joinSubject": "Join FakaInvest",
+    "joinBody": "Use my code"
+  },
+  "ReferralLanding": {
+    "loading": "Verifying code...",
+    "invalidTitle": "Invalid Code",
+    "invalidCode": "Sorry, this referral code is invalid or expired.",
+    "goHome": "Go Home",
+    "friend": "a friend",
+    "networkError": "Network error, please try again",
+    "title": "{name} invites you to join FakaInvest! 🎉",
+    "subtitle": "Get {amount} EGP welcome bonus when you sign up and make your first investment",
+    "benefit1": "{amount} EGP signup bonus",
+    "benefit2": "Invest from just 10 EGP",
+    "benefit3": "Smart goals & auto-saving",
+    "benefit4": "24/7 AI financial advisor",
+    "claimBonus": "Claim your bonus now",
+    "terms": "By signing up, you agree to the terms and conditions",
+    "whyJoin": "Why join FakaInvest?",
+    "feature1Title": "Simple Investing",
+    "feature1Desc": "Invest in gold, stocks & real estate from just 10 EGP",
+    "feature2Title": "AI Powered",
+    "feature2Desc": "Personalized financial tips and smart forecasts to help you save",
+    "feature3Title": "Halal & Secure",
+    "feature3Desc": "Sharia-compliant investments with bank-grade security"
+  },
+  "Seo": {
+    "activity": {
+      "title": "Activity | FakaInvest",
+      "description": "View your recent round-ups and investment activity."
+    },
+    "budget": {
+      "title": "Budget | FakaInvest",
+      "description": "Manage your spending caps and track your budget."
+    },
+    "chat": {
+      "title": "AI Advisor | FakaInvest",
+      "description": "Chat with your personal 24/7 financial advisor."
+    },
+    "contacts": {
+      "title": "Contacts | FakaInvest",
+      "description": "Manage your contacts and send money easily."
+    },
+    "dashboard": {
+      "title": "Dashboard | FakaInvest",
+      "description": "Your central hub for investments and financial health."
+    },
+    "family": {
+      "title": "Family Wallet | FakaInvest",
+      "description": "Invest together with shared family accounts."
+    },
+    "goals": {
+      "title": "Goals | FakaInvest",
+      "description": "Set and track your financial goals with AI assistance."
+    },
+    "insights": {
+      "title": "Insights | FakaInvest",
+      "description": "Deep dive into your financial habits and trends."
+    },
+    "market": {
+      "title": "Market & Offers | FakaInvest",
+      "description": "Explore exclusive cashback offers and market updates."
+    },
+    "portfolio": {
+      "title": "Portfolio | FakaInvest",
+      "description": "Track your investment performance and holdings."
+    },
+    "profile": {
+      "title": "Profile | FakaInvest",
+      "description": "Manage your account settings and preferences."
+    },
+    "real-estate": {
+      "title": "Real Estate | FakaInvest",
+      "description": "Invest in fractional real estate properties."
+    },
+    "referral": {
+      "title": "Refer & Earn | FakaInvest",
+      "description": "Invite friends and earn rewards together."
+    },
+    "report": {
+      "title": "Monthly Report | FakaInvest",
+      "description": "Review your monthly financial summary."
+    },
+    "rewards": {
+      "title": "Rewards | FakaInvest",
+      "description": "Track your badges, streaks, and earned rewards."
+    },
+    "rules": {
+      "title": "Rules | FakaInvest",
+      "description": "Create custom IFTTT rules for smart investing."
+    },
+    "transactions": {
+      "title": "Transactions | FakaInvest",
+      "description": "View all your money in and out."
+    },
+    "wallet": {
+      "title": "Wallet | FakaInvest",
+      "description": "Manage your money and virtual card."
+    },
+    "auth": {
+      "title": "Sign In | FakaInvest",
+      "description": "Sign in or create your FakaInvest account."
+    },
+    "onboarding": {
+      "title": "Welcome | FakaInvest",
+      "description": "Start your smart investment journey."
+    },
+    "more": {
+      "title": "More | FakaInvest",
+      "description": "Explore more features and services."
+    },
+    "payment": {
+      "title": "FakaInvest | Payment",
+      "description": "Pay FakaInvest in less than a minute"
+    },
+    "r": {
+      "title": "Confirm friend invitation",
+      "description": "Welcome to FakaInvest, join the smart investor community and enjoy great features"
+    },
+    "home": {
+      "title": "FakaInvest - Smart Investing",
+      "description": "Invest your money easily and safely with FakaInvest - Smart Investing",
+      "keywords": [
+        "FakaInvest",
+        "Smart Investing",
+        "Investing",
+        "Safe Investing"
+      ]
+    }
   }
 }

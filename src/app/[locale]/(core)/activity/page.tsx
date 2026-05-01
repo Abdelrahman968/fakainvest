@@ -7,6 +7,7 @@ import PendingCard from "@/features/activity/PendingCard";
 import CategoryFilter from "@/features/activity/CategoryFilter";
 import TransactionList from "@/features/activity/TransactionList";
 import { useTransactions } from "@/hooks/useTransactions";
+import { Metadata } from "next";
 
 const categories = [
   "All",

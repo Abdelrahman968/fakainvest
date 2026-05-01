@@ -20,14 +20,44 @@ export default function AuthPage() {
   const t = useTranslations("Auth");
 
   const from = searchParams.get("from") ?? "/dashboard";
+  const urlReferralCode = searchParams.get("ref");
 
+  const [referralCode, setReferralCode] = useState<string | null>(null);
   const [mode, setMode] = useState<Mode>("signin");
   const [showPwd, setShowPwd] = useState(false);
   const [submitting, setSubmitting] = useState(false);
-
   const [displayName, setDisplayName] = useState("");
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
+
+  // Load referral code from URL, localStorage, or sessionStorage
+  useEffect(() => {
+    console.log("URL ref param:", urlReferralCode);
+    console.log(
+      "localStorage referralCode:",
+      localStorage.getItem("referralCode"),
+    );
+    console.log(
+      "sessionStorage referralCode:",
+      sessionStorage.getItem("referralCode"),
+    );
+
+    let code = null;
+
+    // Priority: URL param > localStorage > sessionStorage
+    if (urlReferralCode) {
+      code = urlReferralCode;
+      localStorage.setItem("referralCode", code);
+      sessionStorage.setItem("referralCode", code);
+    } else if (localStorage.getItem("referralCode")) {
+      code = localStorage.getItem("referralCode");
+    } else if (sessionStorage.getItem("referralCode")) {
+      code = sessionStorage.getItem("referralCode");
+    }
+
+    setReferralCode(code);
+    console.log("Final referral code:", code);
+  }, [urlReferralCode]);
 
   useEffect(() => {
     if (!loading && user) {
@@ -44,23 +74,35 @@ export default function AuthPage() {
         const parsed = signUpSchema.safeParse({ displayName, email, password });
         if (!parsed.success) {
           toast.error(parsed.error.issues[0].message);
+          setSubmitting(false);
           return;
         }
+
+        console.log("Sending referral code with signup:", referralCode);
 
         const res = await fetch("/api/auth/signup", {
           method: "POST",
           headers: { "Content-Type": "application/json" },
-          body: JSON.stringify(parsed.data),
+          body: JSON.stringify({
+            ...parsed.data,
+            referralCode: referralCode, // Send the code
+          }),
         });
 
         const data = await res.json();
 
         if (!res.ok) {
           toast.error(data.error ?? t("errors.signupFailed"));
+          setSubmitting(false);
           return;
         }
 
         await refreshUser();
+
+        // Clear referral code after successful signup
+        localStorage.removeItem("referralCode");
+        sessionStorage.removeItem("referralCode");
+
         toast.success(t("welcome"), {
           description: t("accountCreated"),
         });
@@ -69,6 +111,7 @@ export default function AuthPage() {
         const parsed = signInSchema.safeParse({ email, password });
         if (!parsed.success) {
           toast.error(parsed.error.issues[0].message);
+          setSubmitting(false);
           return;
         }
 
@@ -82,6 +125,7 @@ export default function AuthPage() {
 
         if (!res.ok) {
           toast.error(data.error ?? t("errors.signinFailed"));
+          setSubmitting(false);
           return;
         }
 
@@ -118,6 +162,16 @@ export default function AuthPage() {
             </p>
           </div>
         </Link>
+
+        {/* Referral Banner */}
+        {referralCode && mode === "signup" && (
+          <div className="mb-4 rounded-2xl border border-primary-glow/30 bg-primary-glow/10 p-3 text-center">
+            <p className="text-xs text-primary-glow">🎉 {t("referralBonus")}</p>
+            <p className="text-[10px] text-primary-glow/70 mt-1">
+              كود الإحالة: {referralCode}
+            </p>
+          </div>
+        )}
 
         <div className="glass-card p-6 sm:p-8">
           <div className="mb-6">
@@ -229,7 +283,11 @@ export default function AuthPage() {
             {mode === "signin" ? t("noAccount") : t("hasAccount")}{" "}
             <button
               type="button"
-              onClick={() => setMode(mode === "signin" ? "signup" : "signin")}
+              onClick={() => {
+                setMode(mode === "signin" ? "signup" : "signin");
+                setPassword("");
+                setShowPwd(false);
+              }}
               className="font-semibold text-primary-glow hover:underline cursor-pointer"
             >
               {mode === "signin" ? t("createOne") : t("signin")}
