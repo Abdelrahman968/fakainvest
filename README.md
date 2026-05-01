@@ -3,7 +3,54 @@
 ## 💡 The Idea
 **FakaInvest** (derived from the Arabic word "Fakka" meaning loose change) is a micro-investing and modern personal finance platform tailored for the MENA region (currently set in EGP - Egyptian Pounds). The core idea is to seamlessly integrate saving and investing into everyday habits. 
 
-When a user makes a transaction, FakaInvest rounds up the spare change (e.g., buying coffee for 42 EGP rounds up to 45 EGP) and automatically invests the 3 EGP difference into diversified portfolios, fractional assets, or personal savings goals. 
+---
+
+## 🔗 Links
+
+|                    |                                                                           |
+| ------------------ | ------------------------------------------------------------------------- |
+| 🚀 **Live Demo**   | [fakainvest.vercel.app](https://fakainvest.vercel.app/)                   |
+| 💻 **GitHub Repo** | [Abdelrahman968/fakainvest](https://github.com/Abdelrahman968/fakainvest) |
+| 🏆 **Hackathon**   | [Salam Hack — salamhack.com](https://salamhack.com/)                      |
+| 👤 **Developer**   | Vertex Team        |
+
+FakaInvest is a mobile-first wallet, automated savings/investing app, and Sharia-compliant financial advisor in one. Every screen is wired to a real MongoDB database; no localStorage, no fake fronts.
+
+---
+
+## Table of contents
+
+1. [Quick start](#quick-start)
+2. [Tech stack](#tech-stack)
+3. [Sandbox / mock-data assumptions](#sandbox--mock-data-assumptions)
+4. [Database schema (MongoDB)](#database-schema-mongodb)
+5. [Authentication](#authentication)
+6. [API Routes](#api-routes)
+7. [Frontend hooks (the API)](#frontend-hooks-the-api)
+8. [Routes](#routes)
+9. [Environment variables](#environment-variables)
+10. [What's real vs. seeded vs. mock](#whats-real-vs-seeded-vs-mock)
+
+---
+
+## Quick start
+
+```bash
+# Install dependencies
+npm install
+# or
+bun install
+
+# Set up environment variables (see .env.example)
+# Make sure MongoDB is running
+
+# Run the development server
+npm run dev
+# or
+bun run dev
+```
+
+Visit `/auth`, create an account with any email + password (no confirmation required for the demo), and you'll be auto-seeded with a wallet of EGP 5,000, sample budgets, goals, rules, family members, chores, referrals, and notifications. Every action you take is persisted to your account.
 
 ---
 
