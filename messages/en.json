@@ -1167,5 +1167,27 @@
     "chorePlaceholder": "Chore title",
     "rewardPlaceholder": "Reward (EGP)",
     "addChoreBtn": "Add chore"
+  },
+  "Rewards": {
+    "subtitle": "Earn badges, win challenges",
+    "title": "Rewards",
+    "currentStreak": "Current streak",
+    "days": "days",
+    "badgesEarned": "badges earned",
+    "badges": "Badges",
+    "challenges": "Challenges",
+    "leaderboard": "Leaderboard",
+    "daysLeft": "d left",
+    "joined": "joined",
+    "joinChallenge": "Join challenge",
+    "completed": "Completed",
+    "challengeJoined": "Successfully joined challenge",
+    "joinFailed": "Failed to join challenge",
+    "locked": "Locked",
+    "you": "You",
+    "points": "pts",
+    "yourRank": "Your rank",
+    "leaderboardDesc": "Top FakaInvest savers this month · opt-in",
+    "earnPointsDesc": "Earn points by saving daily, hitting goals, and completing challenges."
   }
 }

@@ -1166,5 +1166,27 @@
     "chorePlaceholder": "عنوان المهمة",
     "rewardPlaceholder": "المكافأة (جنيه)",
     "addChoreBtn": "إضافة مهمة"
+  },
+  "Rewards": {
+    "subtitle": "احصل على الشارات واربح التحديات",
+    "title": "المكافآت",
+    "currentStreak": "السلسلة الحالية",
+    "days": "يوم",
+    "badgesEarned": "شارة مكتسبة",
+    "badges": "الشارات",
+    "challenges": "التحديات",
+    "leaderboard": "لوحة المتصدرين",
+    "daysLeft": "يوم متبقي",
+    "joined": "انضم",
+    "joinChallenge": "انضم للتحدي",
+    "completed": "مكتمل",
+    "challengeJoined": "تم الانضمام للتحدي بنجاح",
+    "joinFailed": "فشل الانضمام للتحدي",
+    "locked": "مغلق",
+    "you": "أنت",
+    "points": "نقطة",
+    "yourRank": "ترتيبك",
+    "leaderboardDesc": "أفضل المدخرين في فكا إنفيست هذا الشهر · اشترك للمشاركة",
+    "earnPointsDesc": "اكسب نقاطاً عن طريق التوفير اليومي، تحقيق الأهداف، وإكمال التحديات."
   }
 }
